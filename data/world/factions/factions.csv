@@ -1,4 +1,2 @@
 faction
-data/world/factions/gladiator.faction
-data/world/factions/customportrait.faction
-data/world/factions/mixins.faction
+data/world/factions/combat_arena.faction

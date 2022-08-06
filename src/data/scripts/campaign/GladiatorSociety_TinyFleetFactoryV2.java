@@ -31,6 +31,7 @@ import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
+import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.loading.WeaponGroupSpec;
 import com.fs.starfarer.api.loading.WeaponGroupType;
@@ -729,7 +730,7 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
             }
 
             ShipPickMode mode = Misc.getShipPickMode(market, factionId);
-            if(factionId.equals("mixins")){
+            if(factionId.equals("combat_arena")){
                 mode = ShipPickMode.ALL;
             }
             else if (params.modeOverride != null) {
