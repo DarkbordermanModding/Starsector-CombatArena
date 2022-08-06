@@ -1,0 +1,2 @@
+id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
+combatarena,Combat arena,150,90,,5,,,structure,,graphics/illustrations/raid_preparation.jpg,mod.combatarena.industries.CombatArena,"Enable arena option from bar.",3000,EXTREME

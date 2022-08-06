@@ -10,6 +10,8 @@ import com.fs.starfarer.api.campaign.InteractionDialogPlugin;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SpecialItemData;
+import com.fs.starfarer.api.campaign.SpecialItemSpecAPI;
+import com.fs.starfarer.api.campaign.CargoAPI.CargoItemType;
 import com.fs.starfarer.api.campaign.rules.MemKeys;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
@@ -25,6 +27,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
 import com.fs.starfarer.api.impl.campaign.ids.Items;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
+import com.fs.starfarer.api.impl.campaign.intel.bar.events.historian.SpecialItemOffer;
+import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.DomainSurveyDerelictSpecial.SpecialType;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.loading.WeaponSpecAPI;
 import com.fs.starfarer.api.plugins.OfficerLevelupPlugin;
@@ -36,7 +40,6 @@ import org.lwjgl.input.Keyboard;
 import src.data.scripts.campaign.GladiatorSociety_EndlessContent;
 import src.data.scripts.campaign.GladiatorSociety_TinyFleetFactoryV2;
 import src.data.scripts.campaign.dataclass.*;
-import src.data.utils.GladiatorSociety_Constants;
 
 public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
 
@@ -69,27 +72,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
                 accept(dialog, memoryMap.get(MemKeys.LOCAL));
                 return true;
             case "AcceptMixed":
-                FactionAPI mixed = Global.getSector().getFaction("mixins");
-                for(ShipHullSpecAPI spec: Global.getSettings().getAllShipHullSpecs()){
-                    if (!mixed.knowsShip(spec.getHullId())){
-                        mixed.addKnownShip(spec.getHullId(), true);
-                    }
-                }
-                for(HullModSpecAPI spec: Global.getSettings().getAllHullModSpecs()){
-                    if(!mixed.knowsHullMod(spec.getId())){
-                        mixed.addKnownHullMod(spec.getId());
-                    }
-                }
-                for(WeaponSpecAPI spec: Global.getSettings().getAllWeaponSpecs()){
-                    if(!mixed.knowsWeapon(spec.getWeaponId())){
-                        mixed.addKnownWeapon(spec.getWeaponId(), true);
-                    }
-                }
-                LOG.info("-------------------------");
-                mixed.setAutoEnableKnownHullmods(true);
-                mixed.setAutoEnableKnownShips(true);
-                mixed.setAutoEnableKnownWeapons(true);
-                
+                FactionAPI mixed = Global.getSector().getFaction("combat_arena");
                 endcontent.setEndlessFaction(mixed);
                 accept(dialog, memoryMap.get(MemKeys.LOCAL));
                 return true;
@@ -222,15 +205,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         opts.addOption("Accept With mixed", "AcceptMixedEndless", "Accept With mixed");
         opts.setShortcut("AcceptMixedEndless", Keyboard.KEY_K,
                 false, false, false, false);
-        
 
-        if (endcontent.canHaveReward()) {
-            opts.addOption("Reward", "RewardEndless", "List special reward");
-            opts.setEnabled("RewardEndless", true);
-        } else {
-            opts.addOption("Reward", "RewardEndless", "No reward available or no space available");
-            opts.setEnabled("RewardEndless", false);
-        }
         opts.setShortcut("RewardEndless", Keyboard.KEY_F,
                 false, false, false, false);
 
@@ -242,7 +217,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         opts.setShortcut("ResetEndless", Keyboard.KEY_R,
                 false, false, false, false);
 
-        String exitOpt = "gladiatorComRelay";
+        String exitOpt = "CombatArenaMainEntryOption";
         opts.addOption(Misc.ucFirst("back"), exitOpt);
         opts.setShortcut(exitOpt, Keyboard.KEY_ESCAPE,
                 false, false, false, false);
@@ -291,7 +266,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
             inc++;
         }
 
-        String exitOpt = "gladiatorComRelay";
+        String exitOpt = "CombatArenaMainEntryOption";
 
         opts.addOption(Misc.ucFirst("back"), exitOpt);
         opts.setShortcut(exitOpt, Keyboard.KEY_ESCAPE,
@@ -312,7 +287,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         dialog.setInteractionTarget(endlessfleet);
 
         final FleetInteractionDialogPluginImpl.FIDConfig config = new FleetInteractionDialogPluginImpl.FIDConfig();
-        config.leaveAlwaysAvailable = false;
+        config.leaveAlwaysAvailable = true;
         config.showCommLinkOption = false;
         config.showEngageText = true;
 
@@ -364,9 +339,8 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
                     //if (context.didPlayerWinEncounter()) {
                         int payment = (int) (endcontent.getEndlessReward() * context.getBattle().getPlayerInvolvementFraction());
                         Global.getSector().getPlayerFleet().getCargo().getCredits().add(payment);
+                        Global.getSector().getPlayerFleet().getCargo().addCommodity("arena_token", 1f);
                         endcontent.incEndlessRound();
-                        
-                        
                         //  dialog.dismiss();
                         // FireBest.fire(null, dialog, memory, "GladiatorEBDismissDialog");
                     } else {
@@ -433,11 +407,11 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
             fleet = GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
         }
 
-        Misc.makeImportant(fleet, GladiatorSociety_Constants.GSFACTION_ID, 120);
+        Misc.makeImportant(fleet, "combat_arena", 120);
      //   fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_PIRATE, true);
      //   fleet.getMemoryWithoutUpdate().set(MemFlags.FLEET_NO_MILITARY_RESPONSE, true);
         fleet.setNoFactionInName(true);
-        fleet.setFaction(GladiatorSociety_Constants.GSFACTION_ID, true);
+        fleet.setFaction("combat_arena", true);
         fleet.setName("Gladiator fleet");
       //  fleet.removeAbility(Abilities.INTERDICTION_PULSE);
         fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);

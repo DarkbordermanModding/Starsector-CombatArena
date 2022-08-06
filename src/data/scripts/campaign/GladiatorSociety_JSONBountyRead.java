@@ -24,7 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import src.data.scripts.campaign.dataclass.*;
-import src.data.utils.GladiatorSociety_Constants;
 
 public class GladiatorSociety_JSONBountyRead {
 
@@ -35,176 +34,12 @@ public class GladiatorSociety_JSONBountyRead {
     protected static final String ENDLESSREWARDPATH = "data/config/gsounty/EndlessReward.csv";
     protected static final String MISSIONPATH = "data/config/gsounty/";
 
-    protected static final int SIZE;
+    protected static final int SIZE = 0;
     protected static final List<GladiatorSociety_BountyData> BOUNTY_LIST = new ArrayList<>();
     protected static final Set<String> ENDLESS_LIST = new HashSet<>();
     protected static final List<GladiatorSociety_EndlessReward> ENDLESS_REWARD_LIST = new ArrayList<>();
 
     private static int maxlevel;
-
-    static {
-        try {
-            OfficerLevelupPlugin plugin = (OfficerLevelupPlugin) Global.getSettings().getPlugin("officerLevelUp");
-            maxlevel = plugin.getMaxLevel(null);
-            JSONArray bountyCsv = Global.getSettings().getMergedSpreadsheetDataForMod("missionid", BOUNTYPATH, GladiatorSociety_Constants.MOD_ID);
-            LOG.info("GS: Get every JSON Bounty");
-            for (int x = 0; x < bountyCsv.length(); x++) {
-                GladiatorSociety_BountyData bounty = new GladiatorSociety_BountyData();
-
-                JSONObject row = bountyCsv.getJSONObject(x);
-
-                bounty.missionid = row.getString("missionid");
-                if (bounty.missionid == null || bounty.missionid.isEmpty()) {
-                    continue;
-                }
-                bounty = loadBounty(bounty, bounty.missionid);
-
-                if (bounty != null) {
-                    BOUNTY_LIST.add(bounty);
-                    LOG.info("|||   Bounty valid   |||");
-                    continue;
-                }
-                LOG.info("|||   Bounty not valid   |||");
-
-            }
-            LOG.info("|||   Check WhiteList for Endless Factions   |||");
-            JSONArray endlessCsv = Global.getSettings().getMergedSpreadsheetDataForMod("factionid", ENDLESSPATH, GladiatorSociety_Constants.MOD_ID);
-            for (int x = 0; x < endlessCsv.length(); x++) {
-                JSONObject row = endlessCsv.getJSONObject(x);
-                String fac = row.getString("factionid");
-                ENDLESS_LIST.add(fac);
-            }
-            LOG.info("|||  Done  |||");
-            LOG.info("|||   Check reward for Endless Battle  |||");
-            JSONArray endlessRewardCsv = Global.getSettings().getMergedSpreadsheetDataForMod("id_reward", ENDLESSREWARDPATH, GladiatorSociety_Constants.MOD_ID);
-            for (int x = 0; x < endlessRewardCsv.length(); x++) {
-                JSONObject row = endlessRewardCsv.getJSONObject(x);
-                String str = row.optString("id_reward", "");
-                if (str.isEmpty()) {
-                    LOG.info("||| Reward ignored when no idReward tag  |||");
-                    continue;
-                }
-                GladiatorSociety_EndlessReward reward = new GladiatorSociety_EndlessReward();
-                reward.id_Reward = str;
-                reward.id_Resource = row.optString("id_resource", "");
-
-                if (reward.id_Resource.isEmpty()) {
-                    LOG.info("|||   The id_resource is not valid   |||");
-                    continue;
-                }
-                boolean blueprint = "true".equalsIgnoreCase(row.optString("blueprint", ""));
-                reward.blueprint = blueprint;
-
-                boolean flag = false;
-
-                try {
-                    if (Global.getSettings().getWeaponSpec(reward.id_Resource) != null) {
-                        reward.rewardType = 2;//Weapon
-                        LOG.info("|||  Weapon " + reward.id_Resource + "   |||");
-                        flag = true;
-                    }
-                } catch (RuntimeException e) {
-
-                }
-                if (!flag) {
-                    try {
-                        if (Global.getSettings().getFighterWingSpec(reward.id_Resource) != null) {
-                            reward.rewardType = 3;//Fighter
-                            LOG.info("|||  Fighter " + reward.id_Resource + "   |||");
-                            flag = true;
-                        }
-                    } catch (RuntimeException e) {
-
-                    }
-                }
-                if (!flag) {
-                    try {
-                        if (Global.getSettings().doesVariantExist(reward.id_Resource)) {
-                            reward.rewardType = 4;//Variant
-                            LOG.info("|||  Variant " + reward.id_Resource + "   |||");
-                            flag = true;
-                        }
-                    } catch (RuntimeException e) {
-
-                    }
-                }
-                if (!flag) {
-                    try {
-                        if (Global.getSettings().getHullModSpec(reward.id_Resource) != null) {
-                            reward.rewardType = 5;//Hullmod
-                            LOG.info("|||  Hullmod " + reward.id_Resource + "   |||");
-                            flag = true;
-                        }
-                    } catch (RuntimeException e) {
-
-                    }
-                }
-                if (!flag) {
-                    try {
-                        if (Global.getSettings().getIndustrySpec(reward.id_Resource) != null) {
-                            reward.rewardType = 6;//Industry
-                            LOG.info("|||  Industry " + reward.id_Resource + "   |||");
-                            flag = true;
-                        }
-                    } catch (RuntimeException e) {
-
-                    }
-                }
-                if (!flag) {
-                    try {
-                        if (Global.getSettings().getHullSpec(reward.id_Resource) != null) {
-                            reward.rewardType = 7;//Hull
-                            LOG.info("|||  Hull " + reward.id_Resource + "   |||");
-                        }
-                    } catch (RuntimeException e) {
-
-                    }
-                }
-                if (reward.rewardType == 0) {
-                    LOG.info("||| The id_resource is not a valid weapon, fighter, variant, hull, hullmod, industry id   |||");
-                    continue;
-                }
-                /* 
-                // Check if the id_resource is on reality a blueprint.
-                
-                if (!blueprint.isEmpty() && reward.rewardType!=0) {
-                    
-                    switch (blueprint) {
-                        case "weapon":
-                            
-                            break;
-                        case "fighter":
-                            reward.item_blueprint = Items.FIGHTER_BP;
-                            break;
-                        case "ship":
-                            reward.item_blueprint = Items.SHIP_BP;
-                            break;
-                        case "hullmod":
-                            reward.item_blueprint = Items.MODSPEC;
-                            break;  
-                        case "industry":
-                            reward.item_blueprint = Items.INDUSTRY_BP;
-                            break; 
-                        default:
-                            reward.item_blueprint = "";
-                    }
-                    LOG.info("|||  Blueprint " + reward.item_blueprint + "   |||");
-                }    */
-                reward.number = row.optInt("number", 1);
-                reward.description = row.optString("description", "Description not found");
-                reward.roundReward = row.optInt("roundReward", 0);
-                ENDLESS_REWARD_LIST.add(reward);
-
-            }
-            LOG.info("|||  Done  |||");
-
-        } catch (JSONException ex) {
-            LOG.log(Level.INFO, "The row do not exist", ex);
-        } catch (IOException ex) {
-            LOG.log(Level.WARN, "Not success to load any csv", ex);
-        }
-        SIZE = BOUNTY_LIST.size();
-    }
 
     public static List<GladiatorSociety_BountyData> getAllBountyCopy() {
         return new ArrayList<>(BOUNTY_LIST);

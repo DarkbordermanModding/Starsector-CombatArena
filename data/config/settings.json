@@ -1,13 +1,6 @@
 {
-
-  "plugins":{
-  },
-	"graphics":{
-  "campaignMissions":{
-    "gsbounty":"graphics/icons/missions/GladiatorSociety_Bounty.png",
-    "GladiatorSociety_analyze_entity":"graphics/icons/missions/GladiatorSociety_analyze_entity.png",
-
-  }
-}
-
+  "ruleCommandPackages": [
+    "mod.combatarena.rulecmd.combatarena",
+    "mod.combatarena.rulecmd.tokenexchange"
+  ]
 }
