@@ -1,0 +1,18 @@
+{
+  "dependencies":["swp"],
+
+    "faction":"pirates",
+    "firstname":"Tygnon",
+    "lastname":"Lord",
+    "gender":"N",    # M/F/N  (Male, female, any)
+    "officerlevel":-1, # Per default if -1, put the officerLevel max of your settings.
+    "officerPersonality":"aggressive",
+    "mainShipCustom":["cathedral/GladiatorSociety_cathedral_for","swp_cathedral"],
+    "advships":[["GladiatorSociety_victory_eli",2,"aggressive","swp_victory"]],
+    "randomFleet":false, # If random fleet(from the faction) will be added.
+    "dsrandom":2,
+    "reward":300000, # Bounty reward.
+    "description":"Lord is famous for managing to steal a very important ship from the Luddic Church, but no-one knows how. Exercise caution.",
+    "dialog":"LIVE FOR THE REMNANT PATH, DEATH TO EVERY HUMAN, PROBLEM TO RESOLVE: MONEY, ONE SOLUTION: YOUR HEAD... PERFECT",
+    "avatar":"graphics/portraits/GladiatorSociety_TygnonLord.png", # Portrait of the Gladiator
+}

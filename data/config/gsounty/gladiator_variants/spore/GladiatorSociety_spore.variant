@@ -1,0 +1,33 @@
+{
+    "displayName": "Melting-Pot",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "swp_boss_sporeship",
+    "hullMods": [],
+    "modules": [
+        {"SECTION_BL": "spore/GladiatorSociety_spore_engineLeft"},
+        {"SECTION_BR": "spore/GladiatorSociety_spore_engineRight"},
+        {"SECTION_LL": "spore/GladiatorSociety_spore_autofacLeft"},
+        {"SECTION_LR": "spore/GladiatorSociety_spore_autofacRight"},
+        {"SECTION_ML": "spore/GladiatorSociety_spore_magazineLeft"},
+        {"SECTION_MR": "spore/GladiatorSociety_spore_magazineRight"},
+        {"SECTION_UL": "spore/GladiatorSociety_spore_deflector"},
+        {"SECTION_UR": "spore/GladiatorSociety_spore_sensor"},
+        {"SECTION_TOP": "spore/GladiatorSociety_spore_command"}
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_spore",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "swp_boss_canistercannon"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "swp_boss_canistercannon"}
+        }
+    ]
+}

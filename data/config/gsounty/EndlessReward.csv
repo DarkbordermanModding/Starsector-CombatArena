@@ -1,0 +1,17 @@
+id_reward,id_resource,number,blueprint,description,roundReward
+GladiatorSociety_reward_0,gladius_wing,5,,5 free gladius! 100% gladiator.,2
+GladiatorSociety_reward_1,gladius_wing,6,,6 rusty gladius! 100% free.,3
+GladiatorSociety_reward_2,monitor,,TRUE,A ship blueprint probably god-tier.,9
+GladiatorSociety_reward_3,trident_wing,2,,Nobody like trident. But this is free.,10
+GladiatorSociety_reward_4,gauss,,TRUE,Guess what? Gauss Blueprint.,11
+GladiatorSociety_reward_5,spark_wing,50,,Many many spark.,13
+GladiatorSociety_reward_6,aurora_Strike,,,Happy Aurora,14
+GladiatorSociety_reward_7,trident_wing,,TRUE,Time to built a massive amount of Trident,15
+GladiatorSociety_reward_8,astral,,TRUE,"18th round, perfect for the Astral",18
+GladiatorSociety_reward_9,GladiatorSociety_Cosmigon_Standard,,,"The comic of this situation, this is not a paragon. Nethier a cosmic thing.",20
+GladiatorSociety_reward_10,talon_wing,40,,"You are a trash-can, no?",35
+GladiatorSociety_reward_11,talon_wing,400,,"You will stop probably, some day.",50
+GladiatorSociety_reward_12,talon_wing,4000,,"Please, stop....",60
+GladiatorSociety_reward_13,talon_wing,1,TRUE,"Ok, here, the blueprint.",70
+GladiatorSociety_reward_14,GladiatorSociety_Samurai_Standard,,,A fast unique destroyer.,12
+GladiatorSociety_reward_15,GladiatorSociety_Night_Fury_Assault,,,A fast unique frigate.,5

@@ -1,0 +1,19 @@
+{
+    "faction":"independent",
+    "firstname":"Domrane",
+    "lastname":"elpoep",
+    "gender":"F",    # M/F/N  (Male, female, any)
+    "officerlevel":-1, # Per default if -1, put the officerLevel max of your settings.
+    "officerPersonality":"aggressive",
+    "mainShip":"dominator_Assault", # Flag Ship variant
+    "advships":[], # Variants added after the mainShip
+
+    "randomFleet":true, # If random fleet(from the faction) will be added.
+    "dsrandom":2,
+    "reward":140000, # Bounty reward.
+    "combatPoints":60,
+    "needBounty":"RandomGuys",
+    "description":"The Gladiators in this match are so annoying that your opponent doesn't have a name",
+    "dialog":"I am better than Kiwi, this is all i have to say.",
+    "avatar":"graphics/portraits/portrait21.png", # Portrait of the Gladiator
+}

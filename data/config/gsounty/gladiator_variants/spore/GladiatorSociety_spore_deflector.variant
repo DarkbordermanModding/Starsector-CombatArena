@@ -1,0 +1,35 @@
+{
+    "displayName": "DIABLE",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "swp_boss_sporeship_ul",
+    "hullMods": [
+        "solar_shielding",
+        "fluxbreakers",
+        "swp_gunneryai"
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_spore_deflector",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "diableavionics_opfergv"}
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "diableavionics_magicbox",
+                "WS0004": "diableavionics_magicbox",
+                "WS0005": "diableavionics_magicbox"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "diableavionics_glowtusk"}
+        }
+    ]
+}

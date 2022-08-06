@@ -1,0 +1,16 @@
+{
+    "dependencies":["swp"],
+    "faction":"hegemony",
+    "firstname":"Retainer",
+    "lastname":"Freedom",
+    "gender":"M",    # M/F/N  (Male, female, any)
+    "officerlevel":-1, # Per default if -1, put the officerLevel max of your settings.
+    "officerPersonality":"reckless",
+    "mainShipCustom":["GladiatorSociety_freedom_ret","eagle_xiv"],
+    "randomFleet":true, # If random fleet(from the faction) will be added.
+    "dsrandom":2,
+    "reward":70000, # Bounty reward.
+    "combatPoints":50,
+    "description":"A boxer in his youth, and a man who trained Wunder in 16 fighting styles.  Including the infamous Garnir Drunken-style.  Known for his tendency to pick a fight with anyone, as Wunder aged, he would have long talks with Freedom about his aggression and balanced and realigned his views.  Wunder turned freedom from a unruly and angry person, into someone who was fiercely dedicated to the protection of the Hegemony, and to his leader and Admiral.",
+    "dialog":"If you're against the Hegemony, you're against me.  If you're against me, I pray to Ludd that you have a better arm.",
+}

@@ -1,0 +1,3 @@
+name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,noVent,icon
+Cosmic Drive,GladiatorSociety_burndrive,1,,,,,,,,,2,5,1,10,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
+It`s Time! ,GladiatorSociety_Bushido,,,,,,,,,,1,5,1,30,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png

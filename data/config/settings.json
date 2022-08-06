@@ -1,0 +1,13 @@
+{
+
+  "plugins":{
+  },
+	"graphics":{
+  "campaignMissions":{
+    "gsbounty":"graphics/icons/missions/GladiatorSociety_Bounty.png",
+    "GladiatorSociety_analyze_entity":"graphics/icons/missions/GladiatorSociety_analyze_entity.png",
+
+  }
+}
+
+}

@@ -1,0 +1,19 @@
+{
+    "dependencies":["swp"],
+    "faction":"independent",
+    "firstname":"Bim",
+    "lastname":"Boom",
+    "gender":"F",    # M/F/N  (Male, female, any)
+    "officerlevel":-1, # Per default if -1, put the officerLevel max of your settings.
+    "mainShipCustom":["GladiatorSociety_conquest_xiv_badaboum","swp_conquest_xiv"], # Flag Ship variant
+    "officerPersonality":"aggressive",
+    "advships":[["GladiatorSociety_gryphon_xiv_badaboum",4,"reckless","swp_gryphon_xiv"],["GladiatorSociety_archer_badaboum",14,"reckless","swp_archer"]],
+    "randomFleet":false, # If random fleet(from the faction) will be added.
+    "dsrandom":1,
+    "reward":150000, # Bounty reward.
+    "needBounty":"MrBadaboum",
+    "description":"Bim Boom have remade a new fleet, with more power, are you ready to fight her?",
+    "dialog":"This time, can you explode?",
+
+    "avatar":"graphics/portraits/portrait14.png", # Portrait of the Gladiator
+}

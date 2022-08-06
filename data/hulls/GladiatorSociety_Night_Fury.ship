@@ -1,0 +1,182 @@
+{
+  "bounds": [
+    -30.5,
+    12.5,
+    -25,
+    36.5,
+    -36.5,
+    50.5,
+    -9.5,
+    43.5,
+    10,
+    26.5,
+    12.5,
+    10.5,
+    28.5,
+    18,
+    40,
+    17.5,
+    51.5,
+    -0,
+    40,
+    -17.5,
+    28.5,
+    -18,
+    12.5,
+    -10.5,
+    10,
+    -26.5,
+    -9.5,
+    -43.5,
+    -36.5,
+    -50.5,
+    -25,
+    -36.5,
+    -30.5,
+    -12.5,
+    -63,
+    -0
+  ],
+  "builtInMods": [
+    "high_maintenance"
+  ],
+  "builtInWings": [],
+  "center": [
+    53,
+    69.5
+  ],
+  "collisionRadius": 73.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 27,
+      "length": 67.5,
+      "location": [
+        -29,
+        -19
+      ],
+      "style": "HIGH_TECH",
+      "width": 27
+    },
+    {
+      "angle": -180,
+      "contrailSize": 27,
+      "length": 67.5,
+      "location": [
+        -29,
+        19
+      ],
+      "style": "HIGH_TECH",
+      "width": 27
+    },
+    {
+      "angle": 180,
+      "contrailSize": 8,
+      "length": 39,
+      "location": [
+        -26.5,
+        -30
+      ],
+      "style": "HIGH_TECH",
+      "width": 8
+    },
+    {
+      "angle": -180,
+      "contrailSize": 8,
+      "length": 39,
+      "location": [
+        -26.5,
+        30
+      ],
+      "style": "HIGH_TECH",
+      "width": 8
+    }
+  ],
+  "height": 122,
+  "hullId": "GladiatorSociety_Night_Fury",
+  "hullName": "Night Fury",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 71,
+  "spriteName": "graphics/ships/GladiatorSociety_Night_Fury.png",
+  "style": "HIGH_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0001",
+      "locations": [
+        43,
+        -10
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "COMPOSITE"
+    },
+    {
+      "angle": -0,
+      "arc": 0,
+      "id": "WS0002",
+      "locations": [
+        43,
+        10
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "COMPOSITE"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0003",
+      "locations": [
+        9,
+        -18
+      ],
+      "mount": "HARDPOINT",
+      "size": "MEDIUM",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": -0,
+      "arc": 0,
+      "id": "WS0004",
+      "locations": [
+        9,
+        18
+      ],
+      "mount": "HARDPOINT",
+      "size": "MEDIUM",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 90,
+      "arc": 233,
+      "id": "WS0005",
+      "locations": [
+        -15.5,
+        8
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": -90,
+      "arc": 233,
+      "id": "WS0006",
+      "locations": [
+        -15.5,
+        -8
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    }
+  ],
+  "width": 106
+}

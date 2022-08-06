@@ -1,0 +1,52 @@
+{
+    "displayName": "Fortress",
+    "fluxCapacitors": 0,
+    "fluxVents": 25,
+    "goalVariant": true,
+    "hullId": "swp_cathedral",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "advancedshieldemitter",
+        "pointdefenseai"
+    ],
+    "modules": [
+        {"SECTION_BASE": "cathedral/GladiatorSociety_cathedral_base_std"},
+        {"SECTION_REAR": "cathedral/GladiatorSociety_cathedral_rear_shi"},
+        {"SECTION_GUN_LEFT": "cathedral/GladiatorSociety_cathedral_gun_left_shi"},
+        {"SECTION_GUN_RIGHT": "cathedral/GladiatorSociety_cathedral_gun_right_shi"},
+        {"SECTION_FIGHTER_LEFT": "cathedral/GladiatorSociety_cathedral_fighter_left_shi"},
+        {"SECTION_FIGHTER_RIGHT": "cathedral/GladiatorSociety_cathedral_fighter_right_shi"},
+        {"SECTION_FRONT": "cathedral/GladiatorSociety_cathedral_front_shi"}
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_cathedral_for",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "taclaser",
+                "WS0005": "taclaser",
+                "WS0006": "taclaser",
+                "WS0007": "taclaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "swp_redeemer"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "gravitonbeam",
+                "WS0003": "gravitonbeam"
+            }
+        }
+    ],
+    "wings": [
+        "swp_partisan_wing",
+        "swp_partisan_wing"
+    ]
+}

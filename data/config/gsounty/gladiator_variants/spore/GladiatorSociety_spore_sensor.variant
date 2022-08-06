@@ -1,0 +1,49 @@
+{
+    "displayName": "SCY",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "swp_boss_sporeship_ur",
+    "hullMods": [
+        "missleracks",
+        "eccm",
+        "solar_shielding",
+        "fluxbreakers",
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_spore_sensor",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "SCY_swarmer"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0006": "SCY_arc",
+                "WS0007": "SCY_laser2"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "SCY_ricochet"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "SCY_minigun2"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "SCY_lvds",
+                "WS0005": "SCY_anti2",
+                "WS0009": "mininglaser"
+            }
+        }
+    ]
+}

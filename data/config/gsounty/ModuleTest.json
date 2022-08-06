@@ -1,0 +1,8 @@
+{
+  "dependencies":["DisassembleReassemble"],
+    "mainShipCustom":["vagrant/GladiatorSociety_vagrant_Support","dara_vagrant"],
+    "randomFleet":false, # If random fleet(from the faction) will be added.
+    "description":"Module Test",
+    "dialog":"Module test",
+    "reward":100,
+}

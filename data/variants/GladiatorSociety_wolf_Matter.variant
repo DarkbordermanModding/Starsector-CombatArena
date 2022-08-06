@@ -1,0 +1,42 @@
+{
+  "displayName": "Matter",
+  "fluxCapacitors": 8,
+  "fluxVents": 10,
+  "goalVariant": true,
+  "hullId": "wolf",
+  "hullMods": [
+    "advancedoptics",
+    "targetingunit",
+    "hardened_subsystems"
+  ],
+  "permaMods": [],
+  "quality": 1,
+  "variantId": "GladiatorSociety_wolf_Matter",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "taclaser",
+        "WS 002": "taclaser",
+        "WS 003": "taclaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 005": "hammer",
+        "WS 006": "hammer"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 004": "gravitonbeam"
+      }
+    }
+  ],
+  "wings": []
+}

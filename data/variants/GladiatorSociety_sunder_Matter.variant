@@ -1,0 +1,52 @@
+{
+  "displayName": "Matter",
+  "fluxCapacitors": 0,
+  "fluxVents": 10,
+  "goalVariant": true,
+  "hullId": "sunder",
+  "hullMods": [
+    "advancedoptics",
+    "targetingunit",
+    "converted_hangar"
+  ],
+  "permaMods": [],
+  "quality": 1,
+  "variantId": "GladiatorSociety_sunder_Matter",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "heatseeker",
+        "WS 005": "heatseeker"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 002": "gravitonbeam",
+        "WS 003": "hil",
+        "WS 004": "gravitonbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 008": "vulcan"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": ["xyphos_wing"]
+}

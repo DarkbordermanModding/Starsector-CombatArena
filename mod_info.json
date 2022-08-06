@@ -1,0 +1,10 @@
+{
+  "id":"gladiatorsociety",
+	"name":"Gladiator Society",
+	"author":"Snrasha",
+	"version":"1.3(beta)",
+	"description":"Use Version Checker. Gladiator Society is a Miscellany mod who add Special mission bounty for the fun of death. ",
+	"gameVersion":"0.95a",
+	"modPlugin":"src.data.scripts.world.GladiatorSociety_ModPlugin",
+	"jars":["GladiatorSociety.jar"]
+}

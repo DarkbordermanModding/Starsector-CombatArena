@@ -1,0 +1,49 @@
+{
+
+	"displayName":"Close Support",
+	"fluxCapacitors": 0,
+	"fluxVents": 14,
+	"hullId":"dara_vagrant",
+	"hullMods":["reinforcedhull","insulatedengine"],
+	"permaMods": [],
+	"goalVariant": true,
+	"quality": 0.25,
+	"variantId":"GladiatorSociety_vagrant_Support",
+	"weaponGroups":
+	[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":
+			{
+				"WS0001":"arbalest",
+				"WS0002":"heavymortar",
+			}
+		},
+
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":
+			{
+				"WS0003":"dara_swift",
+				"WS0004":"dara_swift",
+			}
+		},
+
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":
+			{
+				"WS0005":"vulcan",
+				"WS0006":"vulcan",
+				"WS0007":"vulcan",
+			}
+		},
+	],
+
+	"modules": [
+		{"WS0008":"vagrant/GladiatorSociety_vagrant_armour_Standard"}
+	]
+}

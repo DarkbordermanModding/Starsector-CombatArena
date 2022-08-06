@@ -1,0 +1,38 @@
+{
+    "displayName": "Shielded",
+    "fluxCapacitors": 15,
+    "fluxVents": 11,
+    "goalVariant": true,
+    "hullId": "swp_cathedral_gun_left",
+    "hullMods": [
+        "frontshield",
+        "extendedshieldemitter"
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_cathedral_gun_left_shi",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "heavyac"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "pilum",
+                "WS0004": "pilum"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "lightag"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "flak"}
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "faction":"independent",
+    "firstname":"Kiwi",
+    "lastname":"OfKiwi",
+    "gender":"M",    # M/F/N  (Male, female, any)
+    "officerlevel":-1, # Per default if -1, put the officerLevel max of your settings.
+    "mainShip":"sunder_Assault", # Flag Ship variant
+    "officerPersonality":"aggressive",
+    "advships":[], # Variants added after the mainShip
+    "randomFleet":true, # If random fleet(from the faction) will be added.
+    "dsrandom":2,
+    "reward":50000, # Bounty reward.
+    "combatPoints":5,
+    "description":"The Gladiators of this match are so annoying that your opponent doesn't get a name",
+    "dialog":"Hello, what's up? Gonna die today?",
+    "avatar":"graphics/portraits/portrait20.png", # Portrait of the Gladiator
+}

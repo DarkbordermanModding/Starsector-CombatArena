@@ -1,0 +1,64 @@
+id,trigger,conditions,script,text,options,notes
+greetingGS,OpenCommLink,$faction.id == gladiator score:100,$entity.ignorePlayerCommRequests = true 1,$dialog,cutCommLink:Cut the comm link,
+encounterGS,BeginFleetEncounter,$faction.id == gladiator score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
+MakeOtherFleetPreventDisengage tOff true
+MakeOtherFleetAggressive tOff true",,,
+,,,,,,
+GladiatorComRelayAddOptions,COB_AddOptions,"$tag:comm_relay
+!$hasMarket","SetShortcut gladiatorComRelay ""G"" true",,90:gladiatorComRelay:Gladiator Society,
+GladiatorComRelayOptions,DialogOptionSelected,"$option == gladiatorComRelay
+$tag:comm_relay
+!$hasMarket","$menuState = gladiatorSpecial
+FireAll GladiatorComRelayInitialize
+FireAll GladiatorComRelay","Welcome to the Gladiator Society.
+Pull up a chair, take a fight, and claim your rewards.
+
+The third part is only available if you win.",,
+GladiatorComRelayLeaveOption,GladiatorComRelay,,"SetShortcut gladiatorComRelayBack ""ESCAPE""",,30:gladiatorComRelayBack:Back,
+GladiatorComRelayBack,DialogOptionSelected,"$option == gladiatorComRelayBack
+$tag:comm_relay
+!$hasMarket","GladiatorSociety_ShowDefaultVisual
+$menuState = main 0
+FireAll COB_AddOptions",,,
+,,,,,,
+# Gladiator Bounty directory,,,,,,
+gladiator_DirectoryOption,GladiatorComRelay,,SetShortcut gladiatorDirectoryMain G,,10:gladiatorDirectoryMain:Bounty directory,
+gladiator_Directory,DialogOptionSelected,$option == gladiatorDirectoryMain,FireAll GladiatorDirectory,,,
+gladiator_DirectoryByTrigger,GladiatorDirectory,,GladiatorSociety_GladiatorAvailable bountyAvailable,Which bounty do you want to look up?,,
+,,,,,,
+gladiator_Bounty0,DialogOptionSelected,$option == gladiator_Bounty0,GladiatorSociety_GladiatorAvailable bountyDisplay 0,,,
+gladiator_Bounty1,DialogOptionSelected,$option == gladiator_Bounty1,GladiatorSociety_GladiatorAvailable bountyDisplay 1,,,
+gladiator_Bounty2,DialogOptionSelected,$option == gladiator_Bounty2,GladiatorSociety_GladiatorAvailable bountyDisplay 2,,,
+gladiator_Next,DialogOptionSelected,$option == gladiator_Next,GladiatorSociety_GladiatorAvailable Next,,,
+,,,,,,
+gladiator_Accept0,DialogOptionSelected,$option == Accept0,GladiatorSociety_GladiatorAvailable Accept 0,,,
+gladiator_Accept1,DialogOptionSelected,$option == Accept1,GladiatorSociety_GladiatorAvailable Accept 1,,,
+gladiator_Accept2,DialogOptionSelected,$option == Accept2,GladiatorSociety_GladiatorAvailable Accept 2,,,
+,,,,,,
+,,,,,,
+# Gladiator Endless Battle,,,,,,
+gladiator_EndlessOption,GladiatorComRelay,,SetShortcut gladiatorEndlessBattle F,,20:gladiatorEndlessBattle:Endless Battle,
+gladiator_Endless,DialogOptionSelected,$option == gladiatorEndlessBattle,FireAll GladiatorEndless,,,
+gladiator_EndlessByTrigger,GladiatorEndless,,GladiatorSociety_GladiatorEndless Display,"Endless Battle is meant for the thrill of death rather than profit. Every fleet you destroy increases the power of the next.
+After beat a number of fleet, you can choice ship reward.
+",,
+gladiator_EndlessAccept,DialogOptionSelected,$option == AcceptEndless,GladiatorSociety_GladiatorEndless Accept,,,
+gladiator_EndlessAcceptMixed,DialogOptionSelected,$option == AcceptMixedEndless,GladiatorSociety_GladiatorEndless AcceptMixed,,,
+gladiator_EndlessReward,DialogOptionSelected,$option == RewardEndless,GladiatorSociety_GladiatorEndless Reward,,,
+gladiator_EndlessIncrement,DialogOptionSelected,$option == DevIncEndless,GladiatorSociety_GladiatorEndless Increment,,,
+gladiator_EndlessReset,DialogOptionSelected,$option == ResetEndless,GladiatorSociety_GladiatorEndless Reset,,,
+,,,,,,
+gladiator_ERList0,DialogOptionSelected,$option == endless_reward0,"GladiatorSociety_GladiatorEndless Choice 0
+FireAll GladiatorEndless",,,
+gladiator_ERList1,DialogOptionSelected,$option == endless_reward1,"GladiatorSociety_GladiatorEndless Choice 1
+FireAll GladiatorEndless",,,
+gladiator_ERList2,DialogOptionSelected,$option == endless_reward2,"GladiatorSociety_GladiatorEndless Choice 2
+FireAll GladiatorEndless",,,
+gladiator_ERList3,DialogOptionSelected,$option == endless_reward3,"GladiatorSociety_GladiatorEndless Choice 3
+FireAll GladiatorEndless",,,
+,,,,,,
+ETMainDialog,PopulateOptions,"$hasMarket
+$menuState == main
+$tradeMode == OPEN
+RepairAvailable","SetShortcut ETMainMenu ""U"" true",,"25:ETMainMenu:Visit the local Exotica Technologies branch.",
+magiclib_bountyboard_addevent,AddBarEvents,"ShouldShowMagicBountyBoard","AddBarEvent magiclib_bountyboard_selected ""Connect to the local unsanctioned bounty board.""  ""A subroutine from your implant informs you that this establishment is broadcasting an informal job board.""",,,

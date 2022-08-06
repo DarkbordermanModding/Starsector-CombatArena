@@ -1,0 +1,35 @@
+{
+  "displayName": "Boom",
+  "fluxCapacitors": 0,
+  "fluxVents": 8,
+  "goalVariant": false,
+  "hullId": "kite",
+  "hullMods": [
+    "missleracks"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "GladiatorSociety_kite_Boom",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "reaper",
+        "WS 002": "reaper",
+        "WS 003": "lightdualac"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": []
+}

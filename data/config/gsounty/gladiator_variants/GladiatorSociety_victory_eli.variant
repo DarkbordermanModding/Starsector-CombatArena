@@ -1,0 +1,70 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 30,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "swp_victory",
+    "hullMods": ["targetingunit"],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_victory_eli",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "swp_klutotekhnes",
+                "WS0002": "swp_klutotekhnes"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0011": "harpoonpod",
+                "WS0012": "harpoonpod",
+                "WS0013": "harpoonpod",
+                "WS0014": "harpoonpod"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0017": "amblaster",
+                "WS0018": "amblaster",
+                "WS0019": "amblaster",
+                "WS0020": "amblaster"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "gauss",
+                "WS0004": "gauss"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "heavyblaster",
+                "WS0006": "heavyblaster",
+                "WS0007": "dualflak",
+                "WS0008": "dualflak",
+                "WS0009": "heavyneedler",
+                "WS0010": "heavyneedler",
+                "WS0015": "swp_tripleflak",
+                "WS0016": "swp_tripleflak",
+                "WS0021": "lrpdlaser",
+                "WS0022": "lrpdlaser",
+                "WS0023": "lrpdlaser",
+                "WS0024": "lrpdlaser",
+                "WS0025": "lrpdlaser",
+                "WS0026": "lrpdlaser",
+                "WS0027": "lrpdlaser",
+                "WS0028": "lrpdlaser"
+            }
+        }
+    ]
+}

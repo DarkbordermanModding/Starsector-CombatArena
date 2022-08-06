@@ -1,0 +1,16 @@
+{
+  "dependencies":["underworld"],
+    "faction":"cabal",
+    "firstname":"Qui",
+    "lastname":"Pest",
+    "gender":"F",
+    "officerlevel":-1,
+    "mainShipCustom":["GladiatorSociety_aurora_cabal_cus","uw_aurora_cabal"],
+    "officerPersonality":"aggressive",
+    "advships":[["GladiatorSociety_medusa_cabal_cus",1,"aggressive","uw_medusa_cabal"],["GladiatorSociety_tempest_cabal_cus",9,"aggressive","uw_tempest_cabal"]],
+    "dsrandom":2,
+    "reward":150000,
+    "description":"When the Gladiator Society is low on contracts, they will recruit any random drunk they can find. Qui Pest is one of those drunks.",
+    "dialog":"Hips? Ho...",
+    "avatar":"graphics/portraits/portrait_corporate02.png",
+}

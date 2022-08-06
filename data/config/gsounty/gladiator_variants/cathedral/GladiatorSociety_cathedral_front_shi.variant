@@ -1,0 +1,49 @@
+{
+    "displayName": "Shielded",
+    "fluxCapacitors": 15,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "swp_cathedral_front",
+    "hullMods": [
+        "frontshield",
+        "extendedshieldemitter"
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_cathedral_front_shi",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "lightmortar",
+                "WS0008": "lightmortar",
+                "WS0009": "lightmortar",
+                "WS0010": "lightmortar"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "squall",
+                "WS0004": "squall"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "heavymauler",
+                "WS0006": "heavymauler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "swp_tripleflak",
+                "WS0002": "swp_tripleflak"
+            }
+        }
+    ]
+}

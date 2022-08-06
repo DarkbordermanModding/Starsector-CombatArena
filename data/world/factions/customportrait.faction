@@ -1,0 +1,88 @@
+{
+    id:"customportrait",
+
+
+    "portraits":{
+  		"standard_male":[
+      "graphics/portraits/GladiatorSociety_HollowKnight.png",
+      "graphics/portraits/GladiatorSociety_TygnonLord.png",
+      "graphics/portraits/GladiatorSociety_SporeEmperor.png",
+      ],
+  		"standard_female":[
+  		],
+  	},
+
+
+
+
+
+    "color":[100,100,100,255],
+    "secondaryUIColor":[150,0,0,255],
+    "secondarySegments":1,
+    "displayName":"",
+    "displayNameWithArticle":"",
+    "displayNameLong":"",
+    "displayNameLongWithArticle":"",
+    "entityNamePrefix":"",
+    "logo":"graphics/factions/GladiatorSociety_Flag.png",
+    "crest":"graphics/factions/GladiatorSociety_Flag.png",
+    "showInIntelTab":false,
+    "shipNamePrefix":"",
+    "shipNameSources":{
+        "LUDDIC_CHURCH":1,
+    },
+    "names":{
+        "modern":1,
+    },
+    "hullMods":[],
+    "illegalCommodities":[],
+    "custom":{},
+    "doctrine":{
+        # ship distribution
+        "small":7,
+        "fast":5,
+        "medium":10,
+        "large":5,
+        "capital":1,
+
+        # as fraction of combat ships of same size
+        "escortSmallFraction":1,
+        "escortMediumFraction":1,
+
+        "combatFreighterProbability":0.5,
+
+        "minPointsForCombatCapital":20,
+        "minPointsForLargeCarrier":20,
+
+        "smallCarrierProbability":0.25,
+        "mediumCarrierProbability":0.25,
+        "largeCarrierProbability":0.25,
+
+        # officers
+        "officersPerPoint":0.25,
+        "officerLevelPerPoint":0.2,
+        "officerLevelBase":5,
+        "officerLevelVariance":0.25,
+
+        "commanderSkillsPerLevel":0.2,
+        "commanderSkillChance":0.5,
+        "commanderSkillLevelPerLevel":0.2,
+        "commanderSkills":{
+            "officer_management":10,
+            "coordinated_maneuvers":10,
+            "fighter_doctrine":10,
+            "electronic_warfare":10,
+        },
+    },
+    "traits":{
+        "admiral":{
+        },
+        "captain":{
+            "timid":0,
+            "cautious":0,
+            "steady":10,
+            "aggressive":3,
+            "reckless":1,
+        },
+    },
+},

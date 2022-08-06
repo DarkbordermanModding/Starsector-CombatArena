@@ -1,0 +1,33 @@
+{
+
+	"displayName":"Standard",
+
+	"fluxCapacitors": 0,
+
+"fluxVents": 0,
+
+"hullId":"dara_vagrant_armour",
+
+	"hullMods":["missleracks"],
+	"permaMods": [],
+	"goalVariant": true,
+
+"quality": 0.25,
+
+"variantId":"GladiatorSociety_vagrant_armour_Standard",
+
+"weaponGroups":
+	[
+
+{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":
+			{
+				"WS0001":"swarmer",
+			}
+
+},
+
+	]
+}

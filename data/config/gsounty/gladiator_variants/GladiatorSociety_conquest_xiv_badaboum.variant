@@ -1,0 +1,65 @@
+{
+    "displayName": "BoumShield",
+    "fluxCapacitors": 50,
+    "fluxVents": 50,
+    "hullId": "swp_conquest_xiv",
+    "hullMods": [
+        "missleracks",
+        "swp_extrememods",
+        "eccm",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_conquest_xiv_badaboum",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "swp_trebuchet",
+                "WS 002": "swp_trebuchet"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 019": "pilum",
+                "WS 020": "pilum"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "multineedler",
+                "WS 012": "multineedler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "pdlaser",
+                "WS 004": "pdlaser",
+                "WS 005": "pdlaser",
+                "WS 006": "pdlaser",
+                "WS 009": "pdlaser",
+                "WS 010": "pdlaser",
+                "WS 013": "swp_tripleflak",
+                "WS 014": "swp_tripleflak",
+                "WS 015": "dualflak",
+                "WS 022": "heavyburst",
+                "WS 023": "heavyburst"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "lrpdlaser",
+                "WS 008": "lrpdlaser"
+            }
+        }
+    ]
+}

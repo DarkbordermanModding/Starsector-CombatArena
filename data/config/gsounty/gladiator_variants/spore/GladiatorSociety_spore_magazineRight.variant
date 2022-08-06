@@ -1,0 +1,33 @@
+{
+    "displayName": "Exodus",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "swp_boss_sporeship_mr",
+    "hullMods": [
+        "solar_shielding",
+        "fluxbreakers"
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_spore_magazineRight",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "al_heavymonorail2"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "al_bullpup",
+                "WS0004": "al_bullpup"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "al_pelletgun"}
+        }
+    ]
+}

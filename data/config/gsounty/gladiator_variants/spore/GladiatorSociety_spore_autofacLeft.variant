@@ -1,0 +1,36 @@
+{
+    "displayName": "BORKEN",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "swp_boss_sporeship_ll",
+    "hullMods": [
+        "eccm",
+        "missleracks",
+        "solar_shielding",
+        "fluxbreakers"
+    ],
+    "permaMods": [],
+    "variantId": "GladiatorSociety_spore_autofacLeft",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "FOB_fixg_m"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "FOB_fixg_s",
+                "WS0004": "FOB_fixg_s"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "FOB_plasmoid_m"}
+        }
+    ],
+    "wings": []
+}
