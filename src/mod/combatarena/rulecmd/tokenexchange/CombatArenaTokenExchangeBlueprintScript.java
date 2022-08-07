@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.lwjgl.input.Keyboard;
 
+import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
@@ -31,9 +33,14 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
             dialog.getTextPanel().addParagraph("Redeem blueprint section using token" + arg);
         }
 
+        CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
-        opts.addOption("Redeem hullmod", "CombatArenaTokenExchangeBlueprintWeaponOption");
+        opts.addOption("Redeem weapon blueprint", "CombatArenaTokenExchangeBlueprintWeaponOption");
+        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
+        if(cargo.getCommodityQuantity("arena_token") < 2f){
+            opts.setEnabled("CombatArenaTokenExchangeBlueprintWeaponOption", false);
+        }
         //opts.addOption("Redeem weapon blueprint", "CombatArenaTokenExchangeBlueprintOption 4", "Go to token exchange to redeem your reward");
         //opts.addOption("Redeem hull blueprint", "CombatArenaTokenExchangeBlueprintOption 8", "Go to token exchange to redeem your reward");
         opts.addOption("Back", "CombatArenaMainEntryBack");

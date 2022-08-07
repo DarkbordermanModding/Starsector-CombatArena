@@ -17,7 +17,6 @@ public class CombatArenaMainEntryScript extends BaseCommandPlugin{
     @Override
     public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
         dialog.getTextPanel().addParagraph("Welcome to the Combat arena, a place for you to spill the blood and test your maximum.");
-
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
         opts.addOption("Enter the combat area", "gladiatorEndlessBattle", "Start fighting arena");

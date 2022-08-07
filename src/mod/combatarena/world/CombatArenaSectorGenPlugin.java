@@ -16,13 +16,13 @@ public class CombatArenaSectorGenPlugin extends BaseModPlugin {
     public void onNewGame() {
         SectorAPI sector = Global.getSector();
         FactionAPI player = sector.getFaction(Factions.PLAYER);
-        FactionAPI combat_arena = sector.getFaction("combat_arena");
+        FactionAPI combat_arena = sector.getFaction(mod.combatarena.world.Factions.COMBAT_ARENA);
         for (FactionAPI faction : Global.getSector().getAllFactions()) {
             if (faction != player) {
-                faction.setRelationship("combat_arena", RepLevel.SUSPICIOUS);
+                faction.setRelationship(combat_arena.getId(), RepLevel.SUSPICIOUS);
             }
         }
-        player.setRelationship("combat_arena", RepLevel.VENGEFUL);
+        player.setRelationship(combat_arena.getId(), RepLevel.VENGEFUL);
 
         for(ShipHullSpecAPI spec: Global.getSettings().getAllShipHullSpecs()){
             combat_arena.addKnownShip(spec.getHullId(), true);
