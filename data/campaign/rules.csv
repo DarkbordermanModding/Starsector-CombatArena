@@ -9,6 +9,7 @@ CombatArenaMainEntryBack,DialogOptionSelected,"$option == CombatArenaMainEntryBa
 # Arena token exchange entry,,,,,,
 CombatArenaTokenExchangeOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeOption","CombatArenaTokenExchangeMainEntry",,,
 CombatArenaTokenExchangeBlueprintOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintOption","CombatArenaTokenExchangeBlueprintScript",,,
+CombatArenaTokenExchangeBlueprintWeaponOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintWeaponOption","CombatArenaTokenExchangeBlueprintScript weapon",,,
 #CombatArenaTokenExchangeCoreOption
 #CombatArenaTokenExchangeCreditOption
 
