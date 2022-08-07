@@ -1,0 +1,2 @@
+name,id,demand class,base price,export value,price variability,utility,origin,tags,stack size,cargo space,icon,sound id,sound id drop,order,economyTier,econUnitOrigUnused,econUnit,baseRaidDanger,eU * base value,iconWidthMult,plugin,desc
+Combat Arena Token,arena_token,ship_weapons,250000,,0,1,,"nonecon, no_loss_from_combat, no_drop",4000,0,graphics/icons/cargo/credit_chips.png,ui_chip_pickup,ui_modspec_drop,100,,,,EXTREME,,1,,

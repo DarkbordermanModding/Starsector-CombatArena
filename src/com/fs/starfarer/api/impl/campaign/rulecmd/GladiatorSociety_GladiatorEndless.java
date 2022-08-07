@@ -339,10 +339,8 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
                     //if (context.didPlayerWinEncounter()) {
                         int payment = (int) (endcontent.getEndlessReward() * context.getBattle().getPlayerInvolvementFraction());
                         Global.getSector().getPlayerFleet().getCargo().getCredits().add(payment);
-                        Global.getSector().getPlayerFleet().getCargo().addSpecial(new SpecialItemData("catalytic_core",""), 1f);
+                        Global.getSector().getPlayerFleet().getCargo().addCommodity("arena_token", 1f);
                         endcontent.incEndlessRound();
-                        
-                        
                         //  dialog.dismiss();
                         // FireBest.fire(null, dialog, memory, "GladiatorEBDismissDialog");
                     } else {

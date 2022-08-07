@@ -1,2 +1,0 @@
-name,id,tags,tech/manufacturer,rarity,base price,stack size,cargo space,baseRaidDanger,icon,sound id,sound id drop,plugin,plugin params,desc,order
-Combat Arena Token,arena_token,,Combat Arena,,250000,4000,0,,graphics/icons/cargo/credit_chips.png,ui_chip_pickup,ui_modspec_drop,com.fs.starfarer.api.campaign.impl.items.GenericSpecialItemPlugin,,"A collection of notes, guidelines, and practical examples that enable one to adapt and apply this modification to various hulls.",50
