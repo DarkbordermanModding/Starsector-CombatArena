@@ -1,10 +1,10 @@
 id,trigger,conditions,script,text,options,notes
 # Arena bar arena,,,,,,
-CombatArenaBarEvent,AddBarEvents,"ShouldShowCombatArena","AddBarEvent CombatArenaBarOption ""Walk into the Combat arena"" """" ",,,
+CombatArenaBarEvent,AddBarEvents,"ShouldShowCombatArena","AddBarEvent CombatArenaMainEntryOption ""Walk into the Combat arena"" """" ",,,
 
 # Arena main entry,,,,,,
-CombatArenaMainEntry,DialogOptionSelected,"$option == CombatArenaBarOption","CombatArenaMainEntryScript",,,
-CombatArenaMainEntryBack,DialogOptionSelected,"$option == CombatArenaMainEntryBack","BarCMD returnFromEvent false",,,
+CombatArenaMainEntryOption,DialogOptionSelected,"$option == CombatArenaMainEntryOption","CombatArenaMainEntryScript",,,
+CombatArenaMainEntryBackOption,DialogOptionSelected,"$option == CombatArenaMainEntryBackOption","BarCMD returnFromEvent false",,,
 
 # Arena token exchange entry,,,,,,
 CombatArenaTokenExchangeOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeOption","CombatArenaTokenExchangeMainEntry",,,

@@ -1,4 +1,4 @@
-package mod.combatarena.rulecmd;
+package mod.combatarena.rulecmd.combatarena;
 
 import java.util.List;
 import java.util.Map;
@@ -23,8 +23,8 @@ public class CombatArenaMainEntryScript extends BaseCommandPlugin{
         opts.setShortcut("gladiatorEndlessBattle", Keyboard.KEY_G, false, false, false, false);
         opts.addOption("Enter the token exchange area", "CombatArenaTokenExchangeOption", "Go to token exchange to redeem your reward");
         opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_T, false, false, false, false);
-        opts.addOption("Walk back to docking port", "CombatArenaMainEntryBack", "Leave the combat arena");
-        opts.setShortcut("CombatArenaMainEntryBack", Keyboard.KEY_ESCAPE, false, false, false, false);
+        opts.addOption("Walk back to docking port", "CombatArenaMainEntryBackOption", "Leave the combat arena");
+        opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
     }
 }

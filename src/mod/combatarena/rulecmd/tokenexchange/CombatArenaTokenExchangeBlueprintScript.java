@@ -43,8 +43,8 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
         }
         //opts.addOption("Redeem weapon blueprint", "CombatArenaTokenExchangeBlueprintOption 4", "Go to token exchange to redeem your reward");
         //opts.addOption("Redeem hull blueprint", "CombatArenaTokenExchangeBlueprintOption 8", "Go to token exchange to redeem your reward");
-        opts.addOption("Back", "CombatArenaMainEntryBack");
-        opts.setShortcut("CombatArenaMainEntryBack", Keyboard.KEY_ESCAPE, false, false, false, false);
+        opts.addOption("Back", "CombatArenaMainEntryBackOption");
+        opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
     }
 }

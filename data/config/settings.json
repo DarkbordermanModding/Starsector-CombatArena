@@ -1,6 +1,6 @@
 {
   "ruleCommandPackages": [
-    "mod.combatarena.rulecmd",
+    "mod.combatarena.rulecmd.combatarena",
     "mod.combatarena.rulecmd.tokenexchange"
   ]
 }

@@ -1,4 +1,4 @@
-package mod.combatarena.rulecmd;
+package mod.combatarena.rulecmd.combatarena;
 
 import java.util.List;
 import java.util.Map;
