@@ -1,14 +1,14 @@
 id,trigger,conditions,script,text,options,notes
 # Arena bar arena,,,,,,
-CombatArenaBarEvent,AddBarEvents,"ShouldShowCombatArena","AddBarEvent CombatArenaMainEntryOption ""Walk into the Combat arena"" """" ",,,
+CombatArenaBarEvent,AddBarEvents,"ShouldShowCombatArena","AddBarEvent CombatArenaBarOption ""Walk into the Combat arena"" """" ",,,
 
 # Arena main entry,,,,,,
-CombatArenaMainEntry,DialogOptionSelected,"$option == CombatArenaMainEntryOption","CombatArenaMainEntry",,,
+CombatArenaMainEntry,DialogOptionSelected,"$option == CombatArenaBarOption","CombatArenaMainEntryScript",,,
 CombatArenaMainEntryBack,DialogOptionSelected,"$option == CombatArenaMainEntryBack","BarCMD returnFromEvent false",,,
 
 # Arena token exchange entry,,,,,,
-CombatArenaTokenExchangeOption,DialogOptionSelected,,"CombatArenaTokenExchangeMainEntry",,,
-#CombatArenaTokenExchangeBlueprintOption
+CombatArenaTokenExchangeOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeOption","CombatArenaTokenExchangeMainEntry",,,
+CombatArenaTokenExchangeBlueprintOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintOption","CombatArenaTokenExchangeBlueprintScript",,,
 #CombatArenaTokenExchangeCoreOption
 #CombatArenaTokenExchangeCreditOption
 

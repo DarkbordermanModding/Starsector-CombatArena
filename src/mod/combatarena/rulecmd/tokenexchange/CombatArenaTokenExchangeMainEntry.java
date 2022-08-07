@@ -18,11 +18,11 @@ public class CombatArenaTokenExchangeMainEntry extends BaseCommandPlugin {
         dialog.getTextPanel().addParagraph("Welcome to the Combat arena, a place for you to spill the blood and test your maximum.");
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
-        opts.addOption("Enter combat area", "gladiatorEndlessBattle", "Start fighting arena");
-        opts.setShortcut("gladiatorEndlessBattle", Keyboard.KEY_G, false, false, false, false);
-        opts.addOption("Enter token exchange area", "CombatArenaTokenExchangeOption", "Go to token exchange to redeem your reward");
-        opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_T, false, false, false, false);
-        opts.addOption("Back", "CombatArenaMainEntryBack", "Leave the combat arena");
+        opts.addOption("Exchange 1", "CombatArenaTokenExchangeBlueprintOption", "Start fighting arena");
+        opts.setShortcut("CombatArenaTokenExchangeBlueprintOption", Keyboard.KEY_G, false, false, false, false);
+        //opts.addOption("Exchange 2", "CombatArenaTokenExchangeOption", "Go to token exchange to redeem your reward");
+        //opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_T, false, false, false, false);
+        //opts.addOption("Exchange 3", "CombatArenaMainEntryBack", "Leave the combat arena");
         opts.setShortcut("CombatArenaMainEntryBack", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
     }

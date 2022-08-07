@@ -12,7 +12,7 @@ import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 
 
-public class CombatArenaMainEntry extends BaseCommandPlugin{
+public class CombatArenaMainEntryScript extends BaseCommandPlugin{
 
     @Override
     public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
