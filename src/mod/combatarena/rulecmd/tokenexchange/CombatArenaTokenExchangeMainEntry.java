@@ -18,7 +18,7 @@ public class CombatArenaTokenExchangeMainEntry extends BaseCommandPlugin {
         dialog.getTextPanel().addParagraph("Welcome to the Combat arena, a place for you to spill the blood and test your maximum.");
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
-        opts.addOption("Exchange 1", "CombatArenaTokenExchangeBlueprintOption", "Start fighting arena");
+        opts.addOption("Redeem token for blueprints", "CombatArenaTokenExchangeBlueprintOption");
         opts.setShortcut("CombatArenaTokenExchangeBlueprintOption", Keyboard.KEY_G, false, false, false, false);
         //opts.addOption("Exchange 2", "CombatArenaTokenExchangeOption", "Go to token exchange to redeem your reward");
         //opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_T, false, false, false, false);

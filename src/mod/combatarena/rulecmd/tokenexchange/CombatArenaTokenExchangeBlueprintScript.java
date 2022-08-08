@@ -36,13 +36,22 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
         CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
-        opts.addOption("Redeem weapon blueprint", "CombatArenaTokenExchangeBlueprintWeaponOption");
+
+        opts.addOption("Redeem weapon blueprint(2 token)", "CombatArenaTokenExchangeBlueprintWeaponOption");
         dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
         if(cargo.getCommodityQuantity("arena_token") < 2f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintWeaponOption", false);
         }
-        //opts.addOption("Redeem weapon blueprint", "CombatArenaTokenExchangeBlueprintOption 4", "Go to token exchange to redeem your reward");
-        //opts.addOption("Redeem hull blueprint", "CombatArenaTokenExchangeBlueprintOption 8", "Go to token exchange to redeem your reward");
+        opts.addOption("Redeem hullmod blueprint(4 token)", "CombatArenaTokenExchangeBlueprintHullmodOption");
+        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
+        if(cargo.getCommodityQuantity("arena_token") < 4f){
+            opts.setEnabled("CombatArenaTokenExchangeBlueprintHullmodOption", false);
+        }
+        opts.addOption("Redeem hull blueprint(8 token)", "CombatArenaTokenExchangeBlueprintHullOption");
+        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
+        if(cargo.getCommodityQuantity("arena_token") < 8f){
+            opts.setEnabled("CombatArenaTokenExchangeBlueprintHullOption", false);
+        }
         opts.addOption("Back", "CombatArenaMainEntryBackOption");
         opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
