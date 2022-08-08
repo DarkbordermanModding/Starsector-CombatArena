@@ -1,9 +1,3 @@
-import org.apache.tools.ant.taskdefs.condition.Os
-
-repositories {
-    mavenCentral()
-}
-
 apply plugin: 'java'
 
 // project level config
@@ -18,18 +12,6 @@ build {
             from jar
             into 'jars'
         }
-    }
-}
-
-task run(type: Exec) {
-    description 'Run Starsector'
-    dependsOn build
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        workingDir '../../starsector-core'
-        commandLine 'cmd', '/c', 'start', 'starsector.bat'
-    } else {
-        workingDir '../..'
-        commandLine 'sh', 'starsector.sh'
     }
 }
 
@@ -54,5 +36,5 @@ clean {
 }
 
 dependencies {
-    compile fileTree(dir: './libs/', include: '*.jar')
+    compile fileTree(dir: './lib/', include: '*.jar')
 }

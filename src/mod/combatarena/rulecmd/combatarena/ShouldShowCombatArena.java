@@ -19,6 +19,7 @@ public class ShouldShowCombatArena extends BaseCommandPlugin {
         MarketAPI market = dialog.getInteractionTarget().getMarket();
         if (market == null) return false;
         if (!market.hasIndustry("combatarena")) return false;
+        if (!market.getIndustry("combatarena").isFunctional()) return false;
 
         return true;
     }

@@ -1,10 +1,10 @@
 {
-    "id":"gladiatorsociety",
-    "name":"Gladiator Society",
+    "id":"darkborderman.combatarena",
+    "name":"Combat Arena",
     "author":"Darkborderman",
     "version":"0.0.0",
-    "description":"Use Version Checker. Gladiator Society is a Miscellany mod who add Special mission bounty for the fun of death. ",
-    "gameVersion":"0.95a",
+    "description":"A miscellaneous mod for endgame large combats in StarSector.",
+    "gameVersion":"0.96a-RC10",
     "modPlugin":"mod.combatarena.world.CombatArenaSectorGenPlugin",
     "jars":["jars/combatarena.jar"]
 }

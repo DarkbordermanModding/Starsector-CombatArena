@@ -10,20 +10,59 @@ CombatArenaMainEntryBackOption,DialogOptionSelected,"$option == CombatArenaMainE
 CombatArenaTokenExchangeOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeOption","CombatArenaTokenExchangeMainEntry",,,
 CombatArenaTokenExchangeBlueprintOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintOption","CombatArenaTokenExchangeBlueprintScript",,,
 CombatArenaTokenExchangeBlueprintWeaponOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintWeaponOption","CombatArenaTokenExchangeBlueprintScript weapon",,,
-#CombatArenaTokenExchangeCoreOption
-#CombatArenaTokenExchangeCreditOption
+CombatArenaTokenExchangeBlueprintHullmodOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullmodOption","CombatArenaTokenExchangeBlueprintScript hullmod",,,
+CombatArenaTokenExchangeBlueprintHullOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullOption","CombatArenaTokenExchangeBlueprintScript hull",,,
 
-# Gladiator Endless Battle,,,,,,
-gladiator_Endless,DialogOptionSelected,$option == gladiatorEndlessBattle,FireAll GladiatorEndless,,,
-gladiator_EndlessByTrigger,GladiatorEndless,,GladiatorSociety_GladiatorEndless Display,"Endless Battle is meant for the thrill of death rather than profit. Every fleet you destroy increases the power of the next.
-After beat a number of fleet, you can choice ship reward.
-",,
-gladiator_EndlessAccept,DialogOptionSelected,$option == AcceptEndless,GladiatorSociety_GladiatorEndless Accept,,,
-gladiator_EndlessAcceptMixed,DialogOptionSelected,$option == AcceptMixedEndless,GladiatorSociety_GladiatorEndless AcceptMixed,,,
-gladiator_EndlessIncrement,DialogOptionSelected,$option == DevIncEndless,GladiatorSociety_GladiatorEndless Increment,,,
-gladiator_EndlessReset,DialogOptionSelected,$option == ResetEndless,GladiatorSociety_GladiatorEndless Reset,,,
+CombatArenaTokenExchangeCoreOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOption","CombatArenaTokenExchangeCoreScript",,,
+CombatArenaTokenExchangeCoreGammaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreGammaOption","CombatArenaTokenExchangeCoreScript gamma",,,
+CombatArenaTokenExchangeCoreBetaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreBetaOption","CombatArenaTokenExchangeCoreScript beta",,,
+CombatArenaTokenExchangeCoreAlphaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreAlphaOption","CombatArenaTokenExchangeCoreScript alpha",,,
+CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOmegaOption","CombatArenaTokenExchangeCoreScript omega",,,
+
+CombatArenaTokenExchangeCreditOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditOption","CombatArenaTokenExchangeCreditScript",,,
+CombatArenaTokenExchangeCreditYesOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditYesOption","CombatArenaTokenExchangeCreditScript yes",,,
+
+# Arena Endless Battle,,,,,,
+CombatArenaEndlessOption,DialogOptionSelected,"$option == CombatArenaEndlessOption","CombatArenaEndlessScript",,,
+
+CombatArenaEndlessFightOption,DialogOptionSelected,"$option == CombatArenaEndlessFightOption","CombatArenaEndlessFightScript",,,
+
+CombatArenaEndlessModeOption,DialogOptionSelected,"$option == CombatArenaEndlessModeOption","CombatArenaEndlessModeScript",,,
+CombatArenaEndlessModeFleetParamOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetParamOption","CombatArenaEndlessModeScript fleetparam",,,
+CombatArenaEndlessModeFleetPointsOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetPointsOption","CombatArenaEndlessModeScript fleetpoints",,,
+
+CombatArenaEndlessQuantileOption,DialogOptionSelected,"$option == CombatArenaEndlessQuantileOption","CombatArenaEndlessQuantileScript",,,
+CombatArenaEndlessQuantileQ1Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ1Option","CombatArenaEndlessQuantileScript q1",,,
+CombatArenaEndlessQuantileQ2Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ2Option","CombatArenaEndlessQuantileScript q2",,,
+CombatArenaEndlessQuantileQ3Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ3Option","CombatArenaEndlessQuantileScript q3",,,
+CombatArenaEndlessQuantileQ4Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ4Option","CombatArenaEndlessQuantileScript q4",,,
+
+CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionOption","CombatArenaEndlessFactionScript",,,
+CombatArenaEndlessFactionRandomOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionRandomOption","CombatArenaEndlessFactionScript random",,,
+CombatArenaEndlessFactionMixedOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionMixedOption","CombatArenaEndlessFactionScript mixed",,,
+
+CombatArenaEndlessShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessShipSizeOption","CombatArenaEndlessShipSizeScript",,,
+CombatArenaEndlessMinShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessMinShipSizeOption","CombatArenaEndlessShipSizeScript min",,,
+CombatArenaEndlessMaxShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessMaxShipSizeOption","CombatArenaEndlessShipSizeScript max",,,
+
+CombatArenaEndlessRoundOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundOption","CombatArenaEndlessRoundScript",,,
+CombatArenaEndlessRoundIncreaseOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundIncreaseOption","CombatArenaEndlessRoundScript increase",,,
+CombatArenaEndlessRoundResetOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundResetOption","CombatArenaEndlessRoundScript reset",,,
+
+CombatArenaEndlessShipTypeOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeOption","CombatArenaEndlessShipTypeScript",,,
+CombatArenaEndlessShipTypeWarshipOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeWarshipOption","CombatArenaEndlessShipTypeScript warship",,,
+CombatArenaEndlessShipTypeCarrierOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeCarrierOption","CombatArenaEndlessShipTypeScript carrier",,,
+CombatArenaEndlessShipTypePhaserOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypePhaserOption","CombatArenaEndlessShipTypeScript phaser",,,
+CombatArenaEndlessShipTypeFreighterOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeFreighterOption","CombatArenaEndlessShipTypeScript freighter",,,
+CombatArenaEndlessShipTypeTankerOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeTankerOption","CombatArenaEndlessShipTypeScript tanker",,,
+CombatArenaEndlessShipTypeLinerOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeLinerOption","CombatArenaEndlessShipTypeScript liner",,,
+CombatArenaEndlessShipTypeTransportOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeTransportOption","CombatArenaEndlessShipTypeScript transport",,,
+CombatArenaEndlessShipTypeUtilitiesOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeUtilitiesOption","CombatArenaEndlessShipTypeScript utilities",,,
+
+#CombatArenaEndlessCombatOption
+
 ,,,,,,
 # Fleet Encounter,,,,,,
-encounterGS,BeginFleetEncounter,$faction.id == gladiator score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
+CombatArenaFleetEncounter,BeginFleetEncounter,$faction.id == combat_arena score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
 MakeOtherFleetPreventDisengage tOff true
 MakeOtherFleetAggressive tOff true",,,

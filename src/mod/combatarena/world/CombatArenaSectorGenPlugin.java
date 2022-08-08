@@ -10,10 +10,11 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.loading.WeaponSpecAPI;
 
+import mod.combatarena.utilities.CombatArenaRecord;
+
 public class CombatArenaSectorGenPlugin extends BaseModPlugin {
 
-    @Override
-    public void onNewGame() {
+    private void createCombatArenaFaction(){
         SectorAPI sector = Global.getSector();
         FactionAPI player = sector.getFaction(Factions.PLAYER);
         FactionAPI combat_arena = sector.getFaction(mod.combatarena.world.Factions.COMBAT_ARENA);
@@ -36,5 +37,21 @@ public class CombatArenaSectorGenPlugin extends BaseModPlugin {
         combat_arena.setAutoEnableKnownHullmods(true);
         combat_arena.setAutoEnableKnownShips(true);
         combat_arena.setAutoEnableKnownWeapons(true);
+
+        CombatArenaRecord record = new CombatArenaRecord();
+        Global.getSector().getPersistentData().put(CombatArenaRecord.COMBAT_ARENA_DATA_STORAGE_KEY, record);
+    }
+
+    public void onNewGame() {
+        createCombatArenaFaction();
+    }
+
+    public void onGameLoad(boolean newGame){
+        // Mid-save compatibility
+        FactionAPI combat_arena = Global.getSector().getFaction(mod.combatarena.world.Factions.COMBAT_ARENA);
+        if(combat_arena == null){
+            Global.getSettings().createBaseFaction(mod.combatarena.world.Factions.COMBAT_ARENA);
+            createCombatArenaFaction();
+        }
     }
 }
