@@ -210,7 +210,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
     }
 
     private CampaignFleetAPI spawnFleet(GladiatorSociety_EndlessContent content) {
-        FactionAPI faction = pickFaction(content);
+        FactionAPI faction = Global.getSector().getFaction("hegemony");
 
         float random = (int) (Math.random() * 10) / 10f;
 
@@ -231,24 +231,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         params.ignoreMarketFleetSizeMult = true;
 
         CampaignFleetAPI fleet = GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
-        if (fleet == null || fleet.isEmpty()) {
-            params = new FleetParamsV3(
-                    null,
-                    null,
-                    Factions.PLAYER,
-                    null,
-                    FleetTypes.PERSON_BOUNTY_FLEET,
-                    content.getEndlessPower() + random, // combatPts
-                    0, // freighterPts
-                    0, // tankerPts
-                    0f, // transportPts
-                    0f, // linerPts
-                    0f, // utilityPts
-                    1f // qualityMod
-            );
-            fleet = GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
-        }
-
         Misc.makeImportant(fleet, "combat_arena", 120);
         fleet.setNoFactionInName(true);
         fleet.setFaction("combat_arena", true);
