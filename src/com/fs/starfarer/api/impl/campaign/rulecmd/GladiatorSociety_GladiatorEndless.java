@@ -71,11 +71,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
             case "Accept":
                 accept(dialog, memoryMap.get(MemKeys.LOCAL));
                 return true;
-            case "AcceptMixed":
-                FactionAPI mixed = Global.getSector().getFaction("combat_arena");
-                endcontent.setEndlessFaction(mixed);
-                accept(dialog, memoryMap.get(MemKeys.LOCAL));
-                return true;
             case "Reward":
                 reward(dialog, memoryMap.get(MemKeys.LOCAL));
                 return true;
@@ -200,10 +195,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         dialog.getTextPanel().addParagraph("WARNING: The fleet will appear near you.", Color.RED);
         opts.addOption("Accept", "AcceptEndless", "Accept");
         opts.setShortcut("AcceptEndless", Keyboard.KEY_G,
-                false, false, false, false);
-
-        opts.addOption("Accept With mixed", "AcceptMixedEndless", "Accept With mixed");
-        opts.setShortcut("AcceptMixedEndless", Keyboard.KEY_K,
                 false, false, false, false);
 
         opts.setShortcut("RewardEndless", Keyboard.KEY_F,
