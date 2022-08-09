@@ -221,7 +221,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
                 null,
                 FleetTypes.PERSON_BOUNTY_FLEET,
                 content.getEndlessPower() + random, // combatPts
-                0, // freighterPts 
+                0, // freighterPts
                 0, // tankerPts
                 0f, // transportPts
                 0f, // linerPts
@@ -239,7 +239,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
                     null,
                     FleetTypes.PERSON_BOUNTY_FLEET,
                     content.getEndlessPower() + random, // combatPts
-                    0, // freighterPts 
+                    0, // freighterPts
                     0, // tankerPts
                     0f, // transportPts
                     0f, // linerPts
