@@ -15,9 +15,12 @@ CombatArenaTokenExchangeBlueprintHullmodOption,DialogOptionSelected,"$option == 
 CombatArenaTokenExchangeBlueprintHullOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullOption","CombatArenaTokenExchangeBlueprintScript hull",,,
 
 CombatArenaTokenExchangeCoreOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullOption","CombatArenaTokenExchangeBlueprintScript",,,
-#CombatArenaTokenExchangeGammaCoreOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeGammaCoreOption","CombatArenaTokenExchangeBlueprintScript gamma",,,
+CombatArenaTokenExchangeCoreGammaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreGammaOption","CombatArenaTokenExchangeBlueprintScript gamma",,,
+CombatArenaTokenExchangeCoreBetaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreBetaOption","CombatArenaTokenExchangeBlueprintScript beta",,,
+CombatArenaTokenExchangeCoreAlphaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreAlphaOption","CombatArenaTokenExchangeBlueprintScript alpha",,,
+CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOmegaOption","CombatArenaTokenExchangeBlueprintScript omega",,,
 
-#CombatArenaTokenExchangeCreditOption
+#CombatArenaTokenExchangeCreditOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditOption","CombatArenaTokenExchangeBlueprintScript",,,
 
 # Gladiator Endless Battle,,,,,,
 gladiator_Endless,DialogOptionSelected,$option == gladiatorEndlessBattle,FireAll GladiatorEndless,,,
