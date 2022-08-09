@@ -88,55 +88,11 @@ public class GladiatorSociety_EndlessContent {
     }
 
     private void setRandomFaction() {
-        WeightedRandomPicker<String> picker = new WeightedRandomPicker<>();
-        Set<String> endlessfaction = GladiatorSociety_JSONBountyRead.getAllEndlessFactionCopy();
-        
-        for (FactionAPI faction: Global.getSector().getAllFactions()){
-            picker.add(faction.getId(), 1);
-        }
-        if (picker.isEmpty()) {
-            nextFaction = Factions.PIRATES;
-            return;
-        }
-        nextFaction = picker.pick();
-        if (nextFaction == null) {
-            nextFaction = Factions.PIRATES;
-        }
+        nextFaction = Factions.PIRATES;
     }
 
     public int getEndlessReward() {
         return (int) (4.5 * Math.pow(endlessPower, 2)) + endlessPower * 1000;
-    }
-
-    public boolean canHaveReward() {
-
-        updateAvailableReward();
-
-        return !currentRewardList.isEmpty() && Global.getSector().getPlayerFleet().getFleetData().getNumMembers() < Global.getSettings().getMaxShipsInFleet();
-    }
-
-    public void updateAvailableReward() {
-        List<GladiatorSociety_EndlessReward> list = GladiatorSociety_JSONBountyRead.getAllEndlessRewardCopy();
-        currentRewardList.clear();
-        int max = 4;
-        int inc = 0;
-        for (GladiatorSociety_EndlessReward reward : list) {
-            if (rewardTaken.contains(reward.id_Reward)) {
-
-            } else {
-                if (this.endlessRound >= reward.roundReward) {
-                    currentRewardList.add(reward);
-                    inc++;
-                    if (inc >= max) {
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    public List<GladiatorSociety_EndlessReward> getCurrentRewardList() {
-        return currentRewardList;
     }
 
     public Set<String> getRewardTakenList() {
@@ -146,6 +102,4 @@ public class GladiatorSociety_EndlessContent {
     public void addTakenReward(String reward) {
         rewardTaken.add(reward);
     }
-
-
 }
