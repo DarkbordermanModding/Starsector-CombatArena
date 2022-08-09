@@ -90,56 +90,8 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         dialog.getTextPanel().addParagraph("Round: " + endcontent.getEndlessRound());
         dialog.getTextPanel().highlightInLastPara(Color.BLUE, endcontent.getEndlessRound() + "");
         float point = Global.getSector().getPlayerFleet().getFleetPoints();
-        /* float difficulty = point*3 - endcontent.getEndlessPower();
-        int dif = 0;
-
-        if (difficulty < -1 * (point / 10)) {
-            dif--;
-            if (difficulty < -1 * (point / 5)) {
-                dif--;
-                if (difficulty < -1 * point) {
-                    dif--;
-                }
-            }
-        } else {
-            if (difficulty > (point / 5)) {
-                dif++;
-                if (difficulty > (point)) {
-                    dif++;
-                }
-            }
-        }
-        String difmes = "Normal";
-        Color dangercolor = Color.ORANGE;
-        switch (dif) {
-            case -3:
-                difmes = "Impossible";
-                dangercolor = Color.RED;
-                break;
-            case -2:
-                difmes = "Very hard";
-                dangercolor = Color.RED;
-                break;
-            case -1:
-                difmes = "Hard";
-                break;
-            case 0:
-                break;
-            case 1:
-                difmes = "Easy";
-                dangercolor = Color.GREEN;
-                break;
-            case 2:
-                difmes = "Very easy";
-                dangercolor = Color.GREEN;
-
-                break;
-        }*/
         dialog.getTextPanel().addParagraph("Estimated Comparaison force : You(" + point + ") Ennemi(" + endcontent.getEndlessPower() + ")", Color.RED);
 
-        //   dialog.getTextPanel().addParagraph("Estimated Difficulty: " + difmes);
-        //    dialog.getTextPanel().highlightInLastPara(dangercolor, difmes);
-        //dialog.getTextPanel().addParagraph(difmes, dangercolor);
         dialog.getTextPanel().addParagraph("Reward: " + endcontent.getEndlessReward() + " credits");
         endcontent.shuffleFaction();
         FactionAPI faction = endcontent.getEndlessFaction();
@@ -163,57 +115,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         opts.addOption(Misc.ucFirst("back"), exitOpt);
         opts.setShortcut(exitOpt, Keyboard.KEY_ESCAPE,
                 false, false, false, false);
-    }
-
-    public void reward(InteractionDialogAPI dialog, MemoryAPI memory) {
-
-        OptionPanelAPI opts = dialog.getOptionPanel();
-        opts.clearOptions();
-
-        List<GladiatorSociety_EndlessReward> list = endcontent.getCurrentRewardList();
-        int inc = 0;
-        for (GladiatorSociety_EndlessReward reward : list) {
-            String text;
-            switch (reward.rewardType) {
-                case 2:
-                    if (reward.blueprint) {
-                        text = "Weapon Blueprint";
-                    } else {
-                        text = "Weapon";
-                    }
-                    break;
-                case 3:
-                    if (reward.blueprint) {
-                        text = "Fighter Blueprint";
-                    } else {
-                        text = "Fighter";
-                    }
-                    break;
-                case 4:
-                    text = "Ship";
-                    break;
-                case 5:
-                    text = "Hullmod";
-                    break;
-                case 6:
-                    text = "Industry Blueprint";
-                    break;
-                case 7:
-                    text = "Ship Blueprint";
-                    break;
-                default:
-                    text = "Unknown";
-            }
-            opts.addOption(text, "endless_reward" + inc, reward.description);
-            inc++;
-        }
-
-        String exitOpt = "CombatArenaMainEntryOption";
-
-        opts.addOption(Misc.ucFirst("back"), exitOpt);
-        opts.setShortcut(exitOpt, Keyboard.KEY_ESCAPE,
-                false, false, false, false);
-
     }
 
     public void accept(InteractionDialogAPI dialog, MemoryAPI memory) {
@@ -350,17 +251,12 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         }
 
         Misc.makeImportant(fleet, "combat_arena", 120);
-     //   fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_PIRATE, true);
-     //   fleet.getMemoryWithoutUpdate().set(MemFlags.FLEET_NO_MILITARY_RESPONSE, true);
         fleet.setNoFactionInName(true);
         fleet.setFaction("combat_arena", true);
         fleet.setName("Gladiator fleet");
-      //  fleet.removeAbility(Abilities.INTERDICTION_PULSE);
         fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
         fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
         fleet.getMemoryWithoutUpdate().set("$dialog", "The gladiator glares at you briefly before shutting down the comm link.");
-    //fleet.getInflater().setRemoveAfterInflating(false);
-					
         return fleet;
     }
 
