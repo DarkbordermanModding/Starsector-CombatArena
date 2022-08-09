@@ -45,8 +45,6 @@ import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import src.data.scripts.campaign.dataclass.GladiatorSociety_BountyData;
-import src.data.scripts.campaign.dataclass.GladiatorSociety_DataShip;
 
 public class GladiatorSociety_TinyFleetFactoryV2 {
 
@@ -220,13 +218,9 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
         }
     }
 
-    public static CampaignFleetAPI createFleet(FleetParamsV3 params, GladiatorSociety_BountyData mission,PersonAPI person) {
+    public static CampaignFleetAPI createFleet(FleetParamsV3 params,PersonAPI person) {
         Global.getSettings().profilerBegin("GladiatorSociety_TinyFleetFactoryV2.createFleet()");
         try {
-            GladiatorSociety_DataShip mothership = mission.flagship;
-            List<GladiatorSociety_DataShip> ships = mission.advships;
-            boolean randomFleet = mission.randomFleet;
-
             boolean fakeMarket = false;
             MarketAPI market = pickMarket(params);
             if (market == null) {
@@ -235,7 +229,6 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 market.setFactionId(params.factionId);
                 SectorEntityToken token = Global.getSector().getHyperspace().createToken(0, 0);
                 market.setPrimaryEntity(token);
-                
                 market.getStats().getDynamic().getMod(Stats.FLEET_QUALITY_MOD).modifyFlat("fake", BASE_QUALITY_WHEN_NO_MARKET);
 
                 market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).modifyFlat("fake", 1f);
@@ -262,16 +255,7 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
             fleet.getFleetData().setOnlySyncMemberLists(true);
             FleetMemberAPI memb = null;
             ShipVariantAPI variant2;
-              int countFleet = 0;
-            if (mothership.hullid != null) {
-                variant2 = addCustomVariant(mothership.ship);
-                if (variant2 != null) {
-                    memb = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant2);
-                   
-                }
-            } else {
-                memb = Global.getFactory().createFleetMember(FleetMemberType.SHIP, mothership.ship);
-            }
+            int countFleet = 0;
             if (memb != null) {
                 fleet.getFleetData().addFleetMember(memb);
                  countFleet++;
@@ -280,43 +264,7 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 LOG.info("|||   Creating MotherShip failed   |||");
             }
             LOG.info("|||   Creating Custom Fleet Begin   |||");
-            LOG.info("Custom Fleet Array Size: " + ships.size());
 
-          
-            for (GladiatorSociety_DataShip variant : ships) {
-                if (variant == null || variant.ship == null || variant.ship.isEmpty()) {
-                    continue;
-                }
-
-                LOG.info("Create " + variant.ship + " x " + variant.number);
-                if (variant.hullid != null) {
-                    variant2 = addCustomVariant(variant.ship);
-                    if (variant2 != null) {
-                        for (int i = 0; i < variant.number; i++) {
-                            memb = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant2);
-                            if (memb != null) {
-                                if (!variant.personality.equals("steady")) {
-                                    memb.getVariant().addMod("GladiatorSociety_" + variant.personality);
-                                }
-                                fleet.getFleetData().addFleetMember(memb);
-                                countFleet++;
-                            }
-                        }
-                    }
-                } else {
-                    for (int i = 0; i < variant.number; i++) {
-                        memb = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant.ship);
-                        if (memb != null) {
-                            if (!variant.personality.equals("steady")) {
-                                memb.getVariant().addMod("GladiatorSociety_" + variant.personality);
-                            }
-                            fleet.getFleetData().addFleetMember(memb);
-                            countFleet++;
-                        }
-                    }
-                }
-
-            }
 
             FactionDoctrineAPI doctrine = fleet.getFaction().getDoctrine();
             if (params.doctrineOverride != null) {
@@ -421,7 +369,6 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
             warships += (combatPts - warships - carriers - phase);
             CampaignFleetAPI subfleet = createEmptyFleet(factionId, params.fleetType, market);
 
-            if (randomFleet) {
                 if (params.treatCombatFreighterSettingAsFraction != null && params.treatCombatFreighterSettingAsFraction) {
                     float combatFreighters = (int) Math.min(freighterPts * 1.5f, warships * 1.5f) * doctrine.getCombatFreighterProbability();
                     float added = addCombatFreighterFleetPoints(subfleet, random, combatFreighters, params);
@@ -439,7 +386,6 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 addFreighterFleetPoints(subfleet, random, freighterPts, params);
 
                 subfleet.getFleetData().sort();
-            }
             List<FleetMemberAPI> members = subfleet.getFleetData().getMembersListCopy();
             for (FleetMemberAPI mem : members) {
                 fleet.getFleetData().addFleetMember(mem);

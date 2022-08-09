@@ -39,7 +39,6 @@ import java.util.Map;
 import org.lwjgl.input.Keyboard;
 import src.data.scripts.campaign.GladiatorSociety_EndlessContent;
 import src.data.scripts.campaign.GladiatorSociety_TinyFleetFactoryV2;
-import src.data.scripts.campaign.dataclass.*;
 
 public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
 
