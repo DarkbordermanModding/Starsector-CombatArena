@@ -33,7 +33,7 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
             dialog.getTextPanel().addParagraph("View blueprint section");
         }
         else{
-            dialog.getTextPanel().addParagraph("Redeem blueprint section using token" + arg);
+            dialog.getTextPanel().addParagraph("Redeem blueprint using token" + arg);
 
             Random random = new Random();
             switch(arg){

@@ -23,6 +23,11 @@ CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatA
 #CombatArenaTokenExchangeCreditOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditOption","CombatArenaTokenExchangeBlueprintScript",,,
 
 # Arena Endless Battle,,,,,,
+#CombatArenaEndlessOption,DialogOptionSelected, "$option == CombatArenaEndlessOption","CombatArenaEndlessScript",,,
+#CombatArenaEndlessFactionOption
+#CombatArenaEndlessHullsizeOption
+#CombatArenaEndlessCombatOption
+#
 gladiator_Endless,DialogOptionSelected,$option == gladiatorEndlessBattle,FireAll GladiatorEndless,,,
 gladiator_EndlessByTrigger,GladiatorEndless,,GladiatorSociety_GladiatorEndless Display,"Endless Battle is meant for the thrill of death rather than profit. Every fleet you destroy increases the power of the next.",,
 gladiator_EndlessAccept,DialogOptionSelected,$option == AcceptEndless,GladiatorSociety_GladiatorEndless Accept,,,
