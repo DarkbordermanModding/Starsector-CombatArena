@@ -95,8 +95,8 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
         if(cargo.getCommodityQuantity("arena_token") < 8f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintHullOption", false);
         }
-        opts.addOption("Back", "CombatArenaMainEntryBackOption");
-        opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
+        opts.addOption("Back", "CombatArenaTokenExchangeOption");
+        opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
     }
 }

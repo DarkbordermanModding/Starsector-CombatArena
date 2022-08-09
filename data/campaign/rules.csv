@@ -14,11 +14,11 @@ CombatArenaTokenExchangeBlueprintFighterOption,DialogOptionSelected,"$option == 
 CombatArenaTokenExchangeBlueprintHullmodOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullmodOption","CombatArenaTokenExchangeBlueprintScript hullmod",,,
 CombatArenaTokenExchangeBlueprintHullOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullOption","CombatArenaTokenExchangeBlueprintScript hull",,,
 
-CombatArenaTokenExchangeCoreOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullOption","CombatArenaTokenExchangeBlueprintScript",,,
-CombatArenaTokenExchangeCoreGammaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreGammaOption","CombatArenaTokenExchangeBlueprintScript gamma",,,
-CombatArenaTokenExchangeCoreBetaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreBetaOption","CombatArenaTokenExchangeBlueprintScript beta",,,
-CombatArenaTokenExchangeCoreAlphaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreAlphaOption","CombatArenaTokenExchangeBlueprintScript alpha",,,
-CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOmegaOption","CombatArenaTokenExchangeBlueprintScript omega",,,
+CombatArenaTokenExchangeCoreOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOption","CombatArenaTokenExchangeCoreScript",,,
+CombatArenaTokenExchangeCoreGammaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreGammaOption","CombatArenaTokenExchangeCoreScript gamma",,,
+CombatArenaTokenExchangeCoreBetaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreBetaOption","CombatArenaTokenExchangeCoreScript beta",,,
+CombatArenaTokenExchangeCoreAlphaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreAlphaOption","CombatArenaTokenExchangeCoreScript alpha",,,
+CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOmegaOption","CombatArenaTokenExchangeCoreScript omega",,,
 
 #CombatArenaTokenExchangeCreditOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditOption","CombatArenaTokenExchangeBlueprintScript",,,
 

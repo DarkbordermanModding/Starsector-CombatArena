@@ -95,8 +95,8 @@ public class CombatArenaTokenExchangeCoreScript extends BaseCommandPlugin{
         if(cargo.getCommodityQuantity("arena_token") < 16f){
             opts.setEnabled("CombatArenaTokenExchangeCoreOmegaOption", false);
         }
-        opts.addOption("Back", "CombatArenaMainEntryBackOption");
-        opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
+        opts.addOption("Back", "CombatArenaTokenExchangeOption");
+        opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
     }
 }
