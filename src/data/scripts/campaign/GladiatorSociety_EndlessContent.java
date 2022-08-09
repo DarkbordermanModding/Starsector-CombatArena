@@ -12,7 +12,6 @@ import java.util.Set;
 
 public class GladiatorSociety_EndlessContent {
 
-    // public static final String GSTAG = "$GladiatorSociety_ER";
     private int endlessPower;
     private int endlessRound;
     private String nextFaction;
@@ -23,7 +22,6 @@ public class GladiatorSociety_EndlessContent {
         endlessRound = 0;
         setRandomFaction();
     }
-    private final Set<String> rewardTaken = new HashSet<>();
 
     public int getEndlessPower() {
         return (int)(endlessPower*1.5f);
@@ -47,7 +45,7 @@ public class GladiatorSociety_EndlessContent {
 
     public FactionAPI shuffleFaction(){
         WeightedRandomPicker<FactionAPI> picker = new WeightedRandomPicker<>();
-        
+
         for (FactionAPI faction: Global.getSector().getAllFactions()){
             picker.add(faction, 1);
         }
@@ -91,13 +89,5 @@ public class GladiatorSociety_EndlessContent {
 
     public int getEndlessReward() {
         return (int) (4.5 * Math.pow(endlessPower, 2)) + endlessPower * 1000;
-    }
-
-    public Set<String> getRewardTakenList() {
-        return this.rewardTaken;
-    }
-
-    public void addTakenReward(String reward) {
-        rewardTaken.add(reward);
     }
 }
