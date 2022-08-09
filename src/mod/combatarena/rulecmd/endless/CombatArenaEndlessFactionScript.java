@@ -2,12 +2,10 @@ package mod.combatarena.rulecmd.endless;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
