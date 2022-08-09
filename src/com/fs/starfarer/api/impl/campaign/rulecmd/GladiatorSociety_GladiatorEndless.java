@@ -197,18 +197,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         plugin.init(dialog);
     }
 
-    private FactionAPI pickFaction(GladiatorSociety_EndlessContent content) {
-        FactionAPI faction = content.getEndlessFaction();
-        return faction;
-    }
-
-    private PersonAPI initPerson(FactionAPI faction) {
-        float level = ((OfficerLevelupPlugin) Global.getSettings().getPlugin("officerLevelUp")).getMaxLevel(null);
-        int personLevel = (int) (5 + level * 1.5f);
-        return OfficerManagerEvent.createOfficer(Global.getSector().getFaction(faction.getId()),
-                personLevel, true);
-    }
-
     private CampaignFleetAPI spawnFleet(GladiatorSociety_EndlessContent content) {
         FactionAPI faction = Global.getSector().getFaction("hegemony");
 
