@@ -71,57 +71,11 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
             case "Accept":
                 accept(dialog, memoryMap.get(MemKeys.LOCAL));
                 return true;
-            case "Reward":
-                reward(dialog, memoryMap.get(MemKeys.LOCAL));
-                return true;
             case "Increment":
                 endcontent.incEndlessRound();
                 return true;
             case "Reset":
                 endcontent.resetEndless();
-            case "Choice":
-                int num = -1;
-                if (params.size() > 1) {
-                    num = (int) params.get(1).getFloat(memoryMap);
-                } else {
-                    return true;
-                }
-                GladiatorSociety_EndlessReward reward = endcontent.getCurrentRewardList().get(num);
-
-                endcontent.addTakenReward(reward.id_Reward);
-
-                switch (reward.rewardType) {
-                    case 2:
-                        if (reward.blueprint) {
-                            Global.getSector().getPlayerFleet().getCargo().addSpecial(new SpecialItemData(Items.WEAPON_BP, reward.id_Resource), reward.number);
-                        } else {
-                            Global.getSector().getPlayerFleet().getCargo().addWeapons(reward.id_Resource, reward.number);
-                        }
-                        break;
-                    case 3:
-                        if (reward.blueprint) {
-                            Global.getSector().getPlayerFleet().getCargo().addSpecial(new SpecialItemData(Items.FIGHTER_BP, reward.id_Resource), reward.number);
-                        } else {
-                            Global.getSector().getPlayerFleet().getCargo().addFighters(reward.id_Resource, reward.number);
-                        }
-                        break;
-                    case 4:
-                        Global.getSector().getPlayerFleet().getFleetData().addFleetMember(reward.id_Resource);
-                        break;
-                    case 5:
-                        Global.getSector().getPlayerFleet().getCargo().addHullmods(reward.id_Resource, reward.number);
-                        break;
-                    case 6:
-                        Global.getSector().getPlayerFleet().getCargo().addSpecial(new SpecialItemData(Items.INDUSTRY_BP, reward.id_Resource), reward.number);
-                        break;
-                    case 7:
-                        Global.getSector().getPlayerFleet().getCargo().addSpecial(new SpecialItemData(Items.SHIP_BP, reward.id_Resource), reward.number);
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-
         }
 
         return false;
@@ -195,9 +149,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         dialog.getTextPanel().addParagraph("WARNING: The fleet will appear near you.", Color.RED);
         opts.addOption("Accept", "AcceptEndless", "Accept");
         opts.setShortcut("AcceptEndless", Keyboard.KEY_G,
-                false, false, false, false);
-
-        opts.setShortcut("RewardEndless", Keyboard.KEY_F,
                 false, false, false, false);
 
         opts.addOption("Increment", "DevIncEndless", "Clic on the button will have the same effect than beat a round.");
