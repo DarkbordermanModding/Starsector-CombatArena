@@ -76,22 +76,18 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
         opts.clearOptions();
 
         opts.addOption("Redeem weapon blueprint(2 token)", "CombatArenaTokenExchangeBlueprintWeaponOption");
-        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
         if(cargo.getCommodityQuantity("arena_token") < 2f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintWeaponOption", false);
         }
         opts.addOption("Redeem fighter blueprint(4 token)", "CombatArenaTokenExchangeBlueprintFighterOption");
-        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
         if(cargo.getCommodityQuantity("arena_token") < 4f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintFighterOption", false);
         }
         opts.addOption("Redeem hullmod blueprint(4 token)", "CombatArenaTokenExchangeBlueprintHullmodOption");
-        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
         if(cargo.getCommodityQuantity("arena_token") < 4f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintHullmodOption", false);
         }
         opts.addOption("Redeem hull blueprint(8 token)", "CombatArenaTokenExchangeBlueprintHullOption");
-        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
         if(cargo.getCommodityQuantity("arena_token") < 8f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintHullOption", false);
         }
