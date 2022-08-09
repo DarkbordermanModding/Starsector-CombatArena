@@ -97,23 +97,19 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         if (faction != null) {
             dialog.getTextPanel().addParagraph("Faction: " + faction.getDisplayNameLongWithArticle());
         }
+
         dialog.getTextPanel().addParagraph("WARNING: The fleet will appear near you.", Color.RED);
         opts.addOption("Accept", "AcceptEndless", "Accept");
-        opts.setShortcut("AcceptEndless", Keyboard.KEY_G,
-                false, false, false, false);
+        opts.setShortcut("AcceptEndless", Keyboard.KEY_G,false, false, false, false);
 
         opts.addOption("Increment", "DevIncEndless", "Clic on the button will have the same effect than beat a round.");
-        opts.setShortcut("AcceptEndless", Keyboard.KEY_D,
-                false, false, false, false);
+        opts.setShortcut("AcceptEndless", Keyboard.KEY_D, false, false, false, false);
 
         opts.addOption("Reset", "ResetEndless", "Reset");
-        opts.setShortcut("ResetEndless", Keyboard.KEY_R,
-                false, false, false, false);
+        opts.setShortcut("ResetEndless", Keyboard.KEY_R, false, false, false, false);
 
-        String exitOpt = "CombatArenaMainEntryOption";
-        opts.addOption(Misc.ucFirst("back"), exitOpt);
-        opts.setShortcut(exitOpt, Keyboard.KEY_ESCAPE,
-                false, false, false, false);
+        opts.addOption("Back", "CombatArenaMainEntryOption");
+        opts.setShortcut("CombatArenaMainEntryOption", Keyboard.KEY_ESCAPE, false, false, false, false);
     }
 
     public void accept(InteractionDialogAPI dialog, MemoryAPI memory) {
