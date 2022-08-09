@@ -1,6 +1,7 @@
 package mod.combatarena.rulecmd;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 
 public class CombatArenaRecord {
@@ -10,10 +11,18 @@ public class CombatArenaRecord {
     public static final String OPPONENT_HULLSIZE = COMBAT_ARENA_PREFIX + "OpponentHullsize";
     //public static final String opponentCombatOption;
 
-    public String getOpponentFaction(String override){
-        if(override != null) return override;
-        if(Global.getSettings().getString(OPPONENT_FACTION) == null) return "hegemony";
-        return Global.getSettings().getString(OPPONENT_FACTION);
+    public FactionAPI getOpponentFaction(){
+        int index = (int)Global.getSettings().getFloat(OPPONENT_FACTION);
+        if(index == -1) return Global.getSector().getFaction("combat_arena");
+        return Global.getSector().getAllFactions().get(index);
+    }
+    public void setOpponentFaction(FactionAPI faction){
+        if(faction.getId().equals("combat_arena")){
+            Global.getSettings().setFloat(OPPONENT_FACTION, -1f);
+        }else{
+            int index = Global.getSector().getAllFactions().indexOf(faction);
+            Global.getSettings().setFloat(OPPONENT_FACTION, (float)index);
+        }
     }
 
     public HullSize getOpponentHullsize(HullSize override){

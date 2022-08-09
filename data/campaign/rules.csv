@@ -25,7 +25,11 @@ CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatA
 
 # Arena Endless Battle,,,,,,
 CombatArenaEndlessOption,DialogOptionSelected,"$option == CombatArenaEndlessOption","CombatArenaEndlessScript",,,
-#CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionOption"
+
+CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionOption","CombatArenaEndlessFactionScript",,,
+CombatArenaEndlessFactionRandomOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionRandomOption","CombatArenaEndlessFactionScript random",,,
+CombatArenaEndlessFactionMixedOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionMixedOption","CombatArenaEndlessFactionScript mixed",,,
+
 #CombatArenaEndlessHullsizeOption
 #CombatArenaEndlessCombatOption
 #
