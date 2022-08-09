@@ -24,7 +24,6 @@ public class GladiatorSociety_EndlessContent {
         endlessRound = 0;
         setRandomFaction();
     }
-    private final List<GladiatorSociety_EndlessReward> currentRewardList = new ArrayList<>();
     private final Set<String> rewardTaken = new HashSet<>();
 
     public int getEndlessPower() {
