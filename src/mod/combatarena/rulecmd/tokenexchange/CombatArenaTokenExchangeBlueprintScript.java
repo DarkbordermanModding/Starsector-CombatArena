@@ -12,8 +12,10 @@ import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
+import com.fs.starfarer.api.combat.ShipHullSpecAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Items;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
+import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.util.Misc;
 
 
@@ -40,13 +42,30 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
                         random.nextInt(Global.getSector().getAllWeaponIds().size())
                     );
                     cargo.addSpecial(new SpecialItemData(Items.WEAPON_BP, weaponId), 1f);
+                    cargo.removeCommodity("arena_token", 2f);
+                    break;
+                }
+                case "fighter":{
+                    String fighterId = Global.getSector().getAllFighterWingIds().get(
+                        random.nextInt(Global.getSector().getAllFighterWingIds().size())
+                    );
+                    cargo.addSpecial(new SpecialItemData(Items.FIGHTER_BP, fighterId), 1f);
+                    cargo.removeCommodity("arena_token", 4f);
                     break;
                 }
                 case "hullmod":{
+                    HullModSpecAPI hullmod = Global.getSettings().getAllHullModSpecs().get(
+                        random.nextInt(Global.getSettings().getAllHullModSpecs().size())
+                    );
+                    cargo.addSpecial(new SpecialItemData(Items.MODSPEC, hullmod.getId()), 1f);
                     cargo.removeCommodity("arena_token", 4f);
                     break;
                 }
                 case "hull":{
+                    ShipHullSpecAPI hull = Global.getSettings().getAllShipHullSpecs().get(
+                        random.nextInt(Global.getSettings().getAllShipHullSpecs().size())
+                    );
+                    cargo.addSpecial(new SpecialItemData(Items.SHIP_BP, hull.getHullId()), 1f);
                     cargo.removeCommodity("arena_token", 8f);
                     break;
                 }
@@ -60,6 +79,11 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
         dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
         if(cargo.getCommodityQuantity("arena_token") < 2f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintWeaponOption", false);
+        }
+        opts.addOption("Redeem fighter blueprint(4 token)", "CombatArenaTokenExchangeBlueprintFighterOption");
+        dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
+        if(cargo.getCommodityQuantity("arena_token") < 4f){
+            opts.setEnabled("CombatArenaTokenExchangeBlueprintFighterOption", false);
         }
         opts.addOption("Redeem hullmod blueprint(4 token)", "CombatArenaTokenExchangeBlueprintHullmodOption");
         dialog.getTextPanel().addParagraph(cargo.getCommodityQuantity("arena_token") + "token");
