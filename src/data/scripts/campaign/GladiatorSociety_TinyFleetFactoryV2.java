@@ -48,40 +48,7 @@ import org.json.JSONObject;
 
 public class GladiatorSociety_TinyFleetFactoryV2 {
 
-    protected static final String CUSTOMVARIANTPATH = "data/config/gsounty/gladiator_variants/";
-
     public static final Logger LOG = Global.getLogger(GladiatorSociety_TinyFleetFactoryV2.class);
-
-    public static void addGSInteractionConfig(CampaignFleetAPI fleet) {
-        fleet.getMemoryWithoutUpdate().set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN,
-                new GSFleetInteractionConfigGen());
-    }
-
-    public static class GSFleetInteractionConfigGen implements FIDConfigGen {
-
-        @Override
-        public FIDConfig createConfig() {
-            FIDConfig config = new FIDConfig();
-            config.showTransponderStatus = false;
-            config.delegate = new FIDDelegate() {
-
-                @Override
-                public void postPlayerSalvageGeneration(InteractionDialogAPI dialog, FleetEncounterContext context, CargoAPI salvage) {
-                }
-
-                @Override
-                public void battleContextCreated(InteractionDialogAPI dialog, BattleCreationContext bcc) {
-                    bcc.aiRetreatAllowed = false;
-
-                }
-
-                @Override
-                public void notifyLeave(InteractionDialogAPI dialog) {
-                }
-            };
-            return config;
-        }
-    }
 
     public static CampaignFleetAPI createFleet(FleetParamsV3 params) {
         Global.getSettings().profilerBegin("GladiatorSociety_TinyFleetFactoryV2.createFleet()");
@@ -257,7 +224,6 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 member.getVariant().addMod(HullMods.REINFORCEDHULL);
                 member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
             }
-            GladiatorSociety_TinyFleetFactoryV2.addGSInteractionConfig(fleet);
 
             return fleet;
 
