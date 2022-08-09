@@ -1,4 +1,5 @@
 {
+  "CombatArenaOpponentFaction": 0.0,
   "ruleCommandPackages": [
     "mod.combatarena.rulecmd.combatarena",
     "mod.combatarena.rulecmd.tokenexchange",

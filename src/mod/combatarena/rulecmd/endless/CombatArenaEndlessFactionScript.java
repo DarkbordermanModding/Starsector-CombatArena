@@ -7,12 +7,10 @@ import java.util.Random;
 import org.lwjgl.input.Keyboard;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 
@@ -34,13 +32,9 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
             dialog.getTextPanel().addParagraph("Redeem blueprint using token" + arg);
 
             CombatArenaRecord record = new CombatArenaRecord();
-            Random random = new Random();
             switch(arg){
                 case "random":{
-                    FactionAPI faction = Global.getSector().getAllFactions().get(
-                        random.nextInt(Global.getSector().getAllFactions().size())
-                    );
-                    record.setOpponentFaction(faction);
+                    record.randomizeOpponentFaction();
                     break;
                 }
                 case "mixed":{

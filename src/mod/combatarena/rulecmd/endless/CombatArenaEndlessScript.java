@@ -11,6 +11,8 @@ import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 
+import mod.combatarena.rulecmd.CombatArenaRecord;
+
 public class CombatArenaEndlessScript extends BaseCommandPlugin {
 
     @Override
@@ -18,6 +20,11 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
 
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
+        CombatArenaRecord record = new CombatArenaRecord();
+        dialog.getTextPanel().addParagraph(
+            "Opponent information:\n" +
+            "Faction" + record.getOpponentFaction().getDisplayName() + "\n"
+        );
 
         opts.addOption("Fight", "CombatArenaTokenExchangeBlueprintWeaponOption");
         opts.addOption("Change opponent faction", "CombatArenaEndlessFactionOption");

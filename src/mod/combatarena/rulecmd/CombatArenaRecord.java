@@ -1,5 +1,7 @@
 package mod.combatarena.rulecmd;
 
+import java.util.Random;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
@@ -23,6 +25,13 @@ public class CombatArenaRecord {
             int index = Global.getSector().getAllFactions().indexOf(faction);
             Global.getSettings().setFloat(OPPONENT_FACTION, (float)index);
         }
+    }
+    public void randomizeOpponentFaction(){
+        Random random = new Random();
+        FactionAPI faction = Global.getSector().getAllFactions().get(
+            random.nextInt(Global.getSector().getAllFactions().size())
+        );
+        setOpponentFaction(faction);
     }
 
     public HullSize getOpponentHullsize(HullSize override){
