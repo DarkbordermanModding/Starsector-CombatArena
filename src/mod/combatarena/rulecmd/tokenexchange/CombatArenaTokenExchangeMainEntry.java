@@ -20,11 +20,8 @@ public class CombatArenaTokenExchangeMainEntry extends BaseCommandPlugin {
         opts.clearOptions();
         opts.addOption("Redeem token for blueprints", "CombatArenaTokenExchangeBlueprintOption");
         opts.addOption("Redeem token for cores", "CombatArenaTokenExchangeCoreOption");
-        //opts.addOption("Exchange 2", "CombatArenaTokenExchangeOption", "Go to token exchange to redeem your reward");
-        //opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_T, false, false, false, false);
-        //opts.addOption("Exchange 3", "CombatArenaMainEntryBackOption", "Leave the combat arena");
-        opts.addOption("Leave", "CombatArenaMainEntryBackOption");
-        opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
+        opts.addOption("Leave", "CombatArenaMainEntryOption");
+        opts.setShortcut("CombatArenaMainEntryOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
     }
 }

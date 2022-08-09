@@ -23,7 +23,7 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
         opts.clearOptions();
 
         opts.addOption("Fight", "CombatArenaTokenExchangeBlueprintWeaponOption");
-        opts.addOption("Redeem fighter blueprint(4 token)", "CombatArenaTokenExchangeBlueprintFighterOption");
+        opts.addOption("Change faction", "CombatArenaTokenExchangeBlueprintFighterOption");
         opts.addOption("Redeem hullmod blueprint(4 token)", "CombatArenaTokenExchangeBlueprintHullmodOption");
         opts.addOption("Redeem hull blueprint(8 token)", "CombatArenaTokenExchangeBlueprintHullOption");
         opts.addOption("Back", "CombatArenaTokenExchangeOption");
