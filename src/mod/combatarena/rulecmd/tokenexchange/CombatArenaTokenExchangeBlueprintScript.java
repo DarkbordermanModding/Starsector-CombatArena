@@ -2,6 +2,7 @@ package mod.combatarena.rulecmd.tokenexchange;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
 
@@ -9,31 +10,49 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
+import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
+import com.fs.starfarer.api.impl.campaign.ids.Items;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 
 
 public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
 
-    public boolean purchase_hullmod(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
-        dialog.getTextPanel().addParagraph("WTF blueprint section");
-        return true;
-    }
     @Override
     public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
         String arg = null;
         try{
             arg = params.get(0).getString(memoryMap);
         }catch(IndexOutOfBoundsException e){}
+
+        CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
         if(arg == null){
             dialog.getTextPanel().addParagraph("View blueprint section");
         }
         else{
             dialog.getTextPanel().addParagraph("Redeem blueprint section using token" + arg);
+
+            Random random = new Random();
+            switch(arg){
+                case "weapon":{
+                    String weaponId = Global.getSector().getAllWeaponIds().get(
+                        random.nextInt(Global.getSector().getAllWeaponIds().size())
+                    );
+                    cargo.addSpecial(new SpecialItemData(Items.WEAPON_BP, weaponId), 1f);
+                    break;
+                }
+                case "hullmod":{
+                    cargo.removeCommodity("arena_token", 4f);
+                    break;
+                }
+                case "hull":{
+                    cargo.removeCommodity("arena_token", 8f);
+                    break;
+                }
+            }
         }
 
-        CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
 
