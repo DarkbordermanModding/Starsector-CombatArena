@@ -26,20 +26,14 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
         Global.getSettings().profilerBegin("GladiatorSociety_TinyFleetFactoryV2.createFleet()");
         LOG.info("|||   Creating Fleet Begin   |||");
         try {
-            boolean fakeMarket = false;
+            boolean fakeMarket = true;
             MarketAPI market = pickMarket(params);
             if (market == null) {
                 market = Global.getFactory().createMarket("fake", "fake", 5);
                 market.getStability().modifyFlat("fake", 10000);
                 market.setFactionId(params.factionId);
-                SectorEntityToken token = Global.getSector().getHyperspace().createToken(0, 0);
-                market.setPrimaryEntity(token);
-
                 market.getStats().getDynamic().getMod(Stats.FLEET_QUALITY_MOD).modifyFlat("fake", BASE_QUALITY_WHEN_NO_MARKET);
-
                 market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).modifyFlat("fake", 1f);
-
-                fakeMarket = true;
             }
             boolean sourceWasNull = params.source == null;
             params.source = market;
@@ -177,7 +171,6 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
             fleet.getFleetData().sort();
             fleet.forceSync();
 
-            if (fakeMarket) params.source = null;
             fleet.getFleetData().setOnlySyncMemberLists(false);
             fleet.getFleetData().sort();
 
