@@ -212,14 +212,13 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         params.ignoreMarketFleetSizeMult = true;
 
         CampaignFleetAPI fleet = GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
-        Misc.makeImportant(fleet, "combat_arena", 120);
         fleet.setNoFactionInName(true);
         fleet.setFaction("combat_arena", true);
         fleet.setName("Gladiator fleet");
         fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
         fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
         fleet.getMemoryWithoutUpdate().set("$dialog", "The gladiator glares at you briefly before shutting down the comm link.");
+        Misc.makeImportant(fleet, "combat_arena", 120);
         return fleet;
     }
-
 }
