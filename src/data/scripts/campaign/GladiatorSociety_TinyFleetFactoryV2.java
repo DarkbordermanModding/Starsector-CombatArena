@@ -52,12 +52,10 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 factionId = params.source.getFactionId();
             }
 
-            ShipPickMode mode = Misc.getShipPickMode(market, factionId);
             if(factionId.equals("combat_arena")){
-                mode = ShipPickMode.ALL;
-            }
-            else if (params.modeOverride != null) {
-                mode = params.modeOverride;
+                params.mode = ShipPickMode.ALL;
+            }else{
+                params.mode = ShipPickMode.PRIORITY_THEN_ALL;
             }
 
             CampaignFleetAPI fleet = createEmptyFleet(factionId, params.fleetType, market);
@@ -121,7 +119,6 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 banPhaseShipsEtc = !params.forceAllowPhaseShipsEtc;
             }
 
-            params.mode = mode;
             params.banPhaseShipsEtc = banPhaseShipsEtc;
 
             if (banPhaseShipsEtc) {
