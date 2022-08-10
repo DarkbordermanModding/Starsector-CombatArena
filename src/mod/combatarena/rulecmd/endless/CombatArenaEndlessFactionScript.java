@@ -12,7 +12,7 @@ import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 
-import mod.combatarena.rulecmd.CombatArenaRecord;
+import mod.combatarena.utilities.CombatArenaRecord;
 
 public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
 

@@ -36,5 +36,6 @@ public class CombatArenaSectorGenPlugin extends BaseModPlugin {
         combat_arena.setAutoEnableKnownHullmods(true);
         combat_arena.setAutoEnableKnownShips(true);
         combat_arena.setAutoEnableKnownWeapons(true);
+
     }
 }

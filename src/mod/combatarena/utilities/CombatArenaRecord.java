@@ -1,4 +1,4 @@
-package mod.combatarena.rulecmd;
+package mod.combatarena.utilities;
 
 import java.util.Random;
 
