@@ -4,12 +4,11 @@ import java.util.Random;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
-import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 
 public class CombatArenaRecord {
 
     public String opponentFaction = "hegemony";
-    public HullSize opponentHullSize = HullSize.DESTROYER;
+    public int opponentShipSize = 2;
     public static final String COMBAT_ARENA_DATA_STORAGE_KEY = "$CombatArenaStorageKey";
     //public static final String opponentCombatOption;
 
@@ -28,12 +27,12 @@ public class CombatArenaRecord {
         setOpponentFaction(faction);
     }
 
-    public HullSize getOpponentHullsize(HullSize override){
-        if(override != null) return override;
-        return opponentHullSize;
+    public int getOpponentShipSize(int override){
+        return opponentShipSize;
     }
-    public void setOpponentHullsize(HullSize hullsize){
-        opponentHullSize = hullsize;
+    public void setOpponentShipSize(int shipSize){
+        opponentShipSize = shipSize;
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
+
 }
