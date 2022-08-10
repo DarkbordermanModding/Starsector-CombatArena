@@ -6,6 +6,7 @@ import java.util.Random;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
+import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -14,6 +15,7 @@ import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
 import org.apache.log4j.Logger;
@@ -26,6 +28,8 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
         Global.getSettings().profilerBegin("GladiatorSociety_TinyFleetFactoryV2.createFleet()");
         LOG.info("|||   Creating Fleet Begin   |||");
         try {
+            params.ignoreMarketFleetSizeMult = true;
+
             boolean fakeMarket = true;
             MarketAPI market = pickMarket(params);
             if (market == null) {
@@ -185,7 +189,13 @@ public class GladiatorSociety_TinyFleetFactoryV2 {
                 member.getVariant().addMod(HullMods.REINFORCEDHULL);
                 member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
             }
-
+            fleet.setNoFactionInName(true);
+            fleet.setFaction("combat_arena", true);
+            fleet.setName("Gladiator fleet");
+            fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
+            fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+            fleet.getMemoryWithoutUpdate().set("$dialog", "The gladiator glares at you briefly before shutting down the comm link.");
+            Misc.makeImportant(fleet, "combat_arena", 120);
             return fleet;
 
         } finally {

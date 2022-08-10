@@ -191,14 +191,13 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
     }
 
     private CampaignFleetAPI spawnFleet(GladiatorSociety_EndlessContent content) {
-        FactionAPI faction = Global.getSector().getFaction("hegemony");
 
         float random = (int) (Math.random() * 10) / 10f;
 
         FleetParamsV3 params = new FleetParamsV3(
                 null,
                 null,
-                faction.getId(), // quality will always be reduced by non-market-faction penalty, which is what we want 
+                Global.getSector().getFaction("hegemony").getId(), // quality will always be reduced by non-market-faction penalty, which is what we want 
                 null,
                 FleetTypes.PERSON_BOUNTY_FLEET,
                 content.getEndlessPower() + random, // combatPts
@@ -209,16 +208,6 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
                 0f, // utilityPts
                 1f // qualityMod
         );
-        params.ignoreMarketFleetSizeMult = true;
-
-        CampaignFleetAPI fleet = GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
-        fleet.setNoFactionInName(true);
-        fleet.setFaction("combat_arena", true);
-        fleet.setName("Gladiator fleet");
-        fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
-        fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
-        fleet.getMemoryWithoutUpdate().set("$dialog", "The gladiator glares at you briefly before shutting down the comm link.");
-        Misc.makeImportant(fleet, "combat_arena", 120);
-        return fleet;
+        return GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
     }
 }
