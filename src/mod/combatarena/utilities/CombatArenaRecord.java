@@ -9,6 +9,7 @@ public class CombatArenaRecord {
 
     public String opponentFaction = "hegemony";
     public int opponentShipSize = 2;
+    public float opponentFleetPoint = 100f;
     public static final String COMBAT_ARENA_DATA_STORAGE_KEY = "$CombatArenaStorageKey";
     //public static final String opponentCombatOption;
 
