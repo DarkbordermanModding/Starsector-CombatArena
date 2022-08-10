@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.lwjgl.input.Keyboard;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
@@ -21,7 +22,9 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
 
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
-        CombatArenaRecord record = new CombatArenaRecord();
+        CombatArenaRecord record = (CombatArenaRecord)Global.getSector().getPersistentData().get(
+            CombatArenaRecord.COMBAT_ARENA_DATA_STORAGE_KEY
+        );
         dialog.getTextPanel().addParagraph(
             "Opponent information:\n" +
             "Faction" + record.getOpponentFaction().getDisplayName() + "\n"
