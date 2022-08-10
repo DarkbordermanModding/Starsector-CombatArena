@@ -211,7 +211,7 @@ public class GladiatorSociety_GladiatorEndless extends BaseCommandPlugin {
         );
         params.ignoreMarketFleetSizeMult = true;
 
-        CampaignFleetAPI fleet = GladiatorSociety_TinyFleetFactoryV2.createFleet(params);
+        CampaignFleetAPI fleet = CombatArenaFactory.createFleet(params);
         Misc.makeImportant(fleet, "combat_arena", 120);
         fleet.setNoFactionInName(true);
         fleet.setFaction("combat_arena", true);
