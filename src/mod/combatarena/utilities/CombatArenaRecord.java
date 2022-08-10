@@ -13,6 +13,10 @@ public class CombatArenaRecord {
     public static final String OPPONENT_HULLSIZE = COMBAT_ARENA_PREFIX + "OpponentHullsize";
     //public static final String opponentCombatOption;
 
+    public String opponentFaction = "";
+    public HullSize opponentHullSize = HullSize.DESTROYER;
+    public static final String COMBAT_ARENA_DATA_STORAGE_KEY = "$CombatArenaStorageKey";
+
     public FactionAPI getOpponentFaction(){
         int index = (int)Global.getSettings().getFloat(OPPONENT_FACTION);
         if(index == -1) return Global.getSector().getFaction("combat_arena");

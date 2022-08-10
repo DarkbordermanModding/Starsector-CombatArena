@@ -10,6 +10,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.loading.WeaponSpecAPI;
 
+import mod.combatarena.utilities.CombatArenaRecord;
+
 public class CombatArenaSectorGenPlugin extends BaseModPlugin {
 
     @Override
@@ -37,5 +39,7 @@ public class CombatArenaSectorGenPlugin extends BaseModPlugin {
         combat_arena.setAutoEnableKnownShips(true);
         combat_arena.setAutoEnableKnownWeapons(true);
 
+        CombatArenaRecord record = new CombatArenaRecord();
+        Global.getSector().getPersistentData().put(CombatArenaRecord.COMBAT_ARENA_DATA_STORAGE_KEY, record);
     }
 }
