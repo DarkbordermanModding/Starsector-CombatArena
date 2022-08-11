@@ -108,17 +108,7 @@ public class CombatArenaFactory {
             dC += v2;
             dP += v3;
 
-            boolean banPhaseShipsEtc = !fleet.getFaction().isPlayerFaction()
-                    && combatPts < FLEET_POINTS_THRESHOLD_FOR_ANNOYING_SHIPS;
-            if (params.forceAllowPhaseShipsEtc != null && params.forceAllowPhaseShipsEtc) {
-                banPhaseShipsEtc = !params.forceAllowPhaseShipsEtc;
-            }
-
-            params.banPhaseShipsEtc = banPhaseShipsEtc;
-
-            if (banPhaseShipsEtc) {
-                dP = 0;
-            };
+            params.banPhaseShipsEtc = false;
 
             if (dW < 0) {
                 dW = 0;
