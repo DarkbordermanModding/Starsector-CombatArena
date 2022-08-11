@@ -9,10 +9,11 @@ import com.fs.starfarer.api.campaign.FactionAPI;
 
 public class CombatArenaRecord {
 
-    public String opponentFaction = "hegemony";
-    public int opponentShipSize = 2;
-    public float opponentFleetPoint = 100f;
     public static final String COMBAT_ARENA_DATA_STORAGE_KEY = "$CombatArenaStorageKey";
+    public String opponentFaction = "hegemony";
+    public int opponentMinShipSize = 2;
+    public int opponentMaxShipSize = 2;
+    public float opponentFleetPoint = 100f;
     //public static final String opponentCombatOption;
 
     public FactionAPI getOpponentFaction(){
@@ -34,11 +35,19 @@ public class CombatArenaRecord {
         setOpponentFaction(faction);
     }
 
-    public int getOpponentShipSize(int override){
-        return opponentShipSize;
+    public int getOpponentMinShipSize(){
+        return opponentMinShipSize;
     }
-    public void setOpponentShipSize(int shipSize){
-        opponentShipSize = shipSize;
+    public void setOpponentMinShipSize(int shipSize){
+        opponentMinShipSize = shipSize;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public int getOpponentMaxShipSize(){
+        return opponentMaxShipSize;
+    }
+    public void setOpponentMaxShipSize(int shipSize){
+        opponentMaxShipSize = shipSize;
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
 
