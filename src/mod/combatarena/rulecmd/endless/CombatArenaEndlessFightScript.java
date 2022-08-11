@@ -109,14 +109,13 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
 
     private CampaignFleetAPI spawnFleet(CombatArenaRecord record) {
 
-        float random = (int) (Math.random() * 10) / 10f;
         FleetParamsV3 params = new FleetParamsV3(
                 null,
                 null,
-                Global.getSector().getFaction("hegemony").getId(), // quality will always be reduced by non-market-faction penalty, which is what we want 
+                record.getOpponentFaction().getId(), // quality will always be reduced by non-market-faction penalty, which is what we want 
                 null,
                 FleetTypes.PERSON_BOUNTY_FLEET,
-                record.getOpponentFleetPoint() + random, // combatPts
+                record.getOpponentFleetPoint(), // combatPts
                 0, // freighterPts
                 0, // tankerPts
                 0f, // transportPts
