@@ -62,8 +62,8 @@ public class CombatArenaEndlessShipSizeScript extends BaseCommandPlugin {
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
 
-        opts.addOption("Change with max size:" + sizeMap.get(record.opponentMaxShipSize), "CombatArenaEndlessMaxShipSizeOption");
-        opts.addOption("Change with min size:" + sizeMap.get(record.opponentMinShipSize), "CombatArenaEndlessMinShipSizeOption");
+        opts.addOption("Change with max size: " + sizeMap.get(record.opponentMaxShipSize), "CombatArenaEndlessMaxShipSizeOption");
+        opts.addOption("Change with min size: " + sizeMap.get(record.opponentMinShipSize), "CombatArenaEndlessMinShipSizeOption");
         opts.addOption("Back", "CombatArenaEndlessOption");
         opts.setShortcut("CombatArenaEndlessOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
