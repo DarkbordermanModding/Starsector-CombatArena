@@ -6,7 +6,7 @@ import java.util.Random;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
-import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
@@ -14,6 +14,7 @@ import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
 import org.apache.log4j.Logger;
@@ -23,23 +24,17 @@ public class CombatArenaFactory {
     public static final Logger LOG = Global.getLogger(CombatArenaFactory.class);
 
     public static CampaignFleetAPI createFleet(FleetParamsV3 params) {
-        Global.getSettings().profilerBegin("GladiatorSociety_TinyFleetFactoryV2.createFleet()");
         LOG.info("|||   Creating Fleet Begin   |||");
         try {
-            boolean fakeMarket = false;
+            params.ignoreMarketFleetSizeMult = true;
+
             MarketAPI market = pickMarket(params);
             if (market == null) {
                 market = Global.getFactory().createMarket("fake", "fake", 5);
                 market.getStability().modifyFlat("fake", 10000);
                 market.setFactionId(params.factionId);
-                SectorEntityToken token = Global.getSector().getHyperspace().createToken(0, 0);
-                market.setPrimaryEntity(token);
-
                 market.getStats().getDynamic().getMod(Stats.FLEET_QUALITY_MOD).modifyFlat("fake", BASE_QUALITY_WHEN_NO_MARKET);
-
                 market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).modifyFlat("fake", 1f);
-
-                fakeMarket = true;
             }
             boolean sourceWasNull = params.source == null;
             params.source = market;
@@ -52,12 +47,10 @@ public class CombatArenaFactory {
                 factionId = params.source.getFactionId();
             }
 
-            ShipPickMode mode = Misc.getShipPickMode(market, factionId);
             if(factionId.equals("combat_arena")){
-                mode = ShipPickMode.ALL;
-            }
-            else if (params.modeOverride != null) {
-                mode = params.modeOverride;
+                params.mode = ShipPickMode.ALL;
+            }else{
+                params.mode = ShipPickMode.PRIORITY_THEN_ALL;
             }
 
             CampaignFleetAPI fleet = createEmptyFleet(factionId, params.fleetType, market);
@@ -121,7 +114,6 @@ public class CombatArenaFactory {
                 banPhaseShipsEtc = !params.forceAllowPhaseShipsEtc;
             }
 
-            params.mode = mode;
             params.banPhaseShipsEtc = banPhaseShipsEtc;
 
             if (banPhaseShipsEtc) {
@@ -159,7 +151,7 @@ public class CombatArenaFactory {
             int phase = (int) (combatPts * dP / doctrineTotal);
 
             warships += (combatPts - warships - carriers - phase);
-            params.minShipSize = 3;
+            params.minShipSize = 4;
             params.maxShipSize = 4;
 
             if (params.treatCombatFreighterSettingAsFraction != null && params.treatCombatFreighterSettingAsFraction) {
@@ -178,14 +170,12 @@ public class CombatArenaFactory {
 
             addFreighterFleetPoints(fleet, random, freighterPts, params);
             fleet.getFleetData().sort();
-
             fleet.forceSync();
 
-            if (fakeMarket) {
-                params.source = null;
-            }
             fleet.getFleetData().setOnlySyncMemberLists(false);
             fleet.getFleetData().sort();
+
+            // Do some custom fleet advanced options
             List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
             for (FleetMemberAPI member : members) {
                 member.setCaptain(
@@ -196,11 +186,14 @@ public class CombatArenaFactory {
                 member.getVariant().addMod(HullMods.REINFORCEDHULL);
                 member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
             }
-
+            fleet.setNoFactionInName(true);
+            fleet.setFaction("combat_arena", true);
+            fleet.setName("Gladiator fleet");
+            fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
+            fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+            fleet.getMemoryWithoutUpdate().set("$dialog", "The gladiator glares at you briefly before shutting down the comm link.");
+            Misc.makeImportant(fleet, "combat_arena", 120);
             return fleet;
-
-        } finally {
-            Global.getSettings().profilerEnd();
-        }
+        } finally {}
     }
 }
