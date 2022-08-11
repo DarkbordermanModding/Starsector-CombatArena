@@ -1,5 +1,7 @@
 package mod.combatarena.utilities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.fs.starfarer.api.Global;
@@ -22,9 +24,13 @@ public class CombatArenaRecord {
     }
     public void randomizeOpponentFaction(){
         Random random = new Random();
-        FactionAPI faction = Global.getSector().getAllFactions().get(
-            random.nextInt(Global.getSector().getAllFactions().size())
-        );
+        List<FactionAPI> factions = new ArrayList<>();
+        for(FactionAPI faction: Global.getSector().getAllFactions()){
+            if(faction.isShowInIntelTab() == true){
+                factions.add(faction);
+            }
+        }
+        FactionAPI faction = factions.get(random.nextInt(factions.size()));
         setOpponentFaction(faction);
     }
 
