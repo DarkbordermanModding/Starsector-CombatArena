@@ -151,8 +151,6 @@ public class CombatArenaFactory {
             int phase = (int) (combatPts * dP / doctrineTotal);
 
             warships += (combatPts - warships - carriers - phase);
-            params.minShipSize = 4;
-            params.maxShipSize = 4;
 
             if (params.treatCombatFreighterSettingAsFraction != null && params.treatCombatFreighterSettingAsFraction) {
                 float combatFreighters = (int) Math.min(freighterPts * 1.5f, warships * 1.5f) * doctrine.getCombatFreighterProbability();

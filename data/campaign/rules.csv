@@ -32,7 +32,9 @@ CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndl
 CombatArenaEndlessFactionRandomOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionRandomOption","CombatArenaEndlessFactionScript random",,,
 CombatArenaEndlessFactionMixedOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionMixedOption","CombatArenaEndlessFactionScript mixed",,,
 
-#CombatArenaEndlessHullsizeOption
+CombatArenaEndlessShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessShipSizeOption","CombatArenaEndlessShipSizeScript",,,
+CombatArenaEndlessMinShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessMinShipSizeOption","CombatArenaEndlessShipSizeScript min",,,
+CombatArenaEndlessMaxShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessMaxShipSizeOption","CombatArenaEndlessShipSizeScript max",,,
 #CombatArenaEndlessCombatOption
 
 ,,,,,,
