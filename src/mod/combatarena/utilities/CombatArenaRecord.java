@@ -36,4 +36,22 @@ public class CombatArenaRecord {
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
 
+    public float getOpponentFleetPoint(){
+        return opponentFleetPoint;
+    }
+    public void setOpponentFleetPoint(float fleetPoint){
+        opponentFleetPoint = fleetPoint;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public float getCreditRewardAmountWithoutArenaToken(CombatArenaRecord record){
+        float credits = opponentFleetPoint * 1000;
+        return (int)credits;
+    }
+    public float getArenaTokenRewardAmount(CombatArenaRecord record){
+        return (int)getCreditRewardAmountWithoutArenaToken(record)/250000;
+    }
+    public float getCreditRewardAmount(CombatArenaRecord record){
+        return (int)getCreditRewardAmountWithoutArenaToken(record)%250000;
+    }
 }
