@@ -94,7 +94,8 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
                     {
                         Global.getSector().getPlayerFleet().getCargo().getCredits().add(record.getCreditRewardAmount(record));
                         Global.getSector().getPlayerFleet().getCargo().addCommodity("arena_token", record.getCreditRewardAmount(record));
-                        //endcontent.incEndlessRound();
+                        // increase difficulty
+                        // randomize faction
                     } else {
                         dialog.dismiss();
                     }

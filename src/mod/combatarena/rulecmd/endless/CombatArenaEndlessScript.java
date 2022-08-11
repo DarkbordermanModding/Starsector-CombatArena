@@ -30,7 +30,7 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
             "Faction" + record.getOpponentFaction().getDisplayName() + "\n"
         );
 
-        opts.addOption("Fight", "CombatArenaTokenExchangeBlueprintWeaponOption");
+        opts.addOption("Fight", "CombatArenaEndlessFightOption");
         opts.addOption("Change opponent faction", "CombatArenaEndlessFactionOption");
         //opts.addOption("Change opponent size", "CombatArenaTokenExchangeBlueprintHullmodOption");
         //opts.addOption("Change opponent combat strength", "CombatArenaTokenExchangeBlueprintHullOption");

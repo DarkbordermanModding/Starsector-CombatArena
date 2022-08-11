@@ -26,6 +26,8 @@ CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatA
 # Arena Endless Battle,,,,,,
 CombatArenaEndlessOption,DialogOptionSelected,"$option == CombatArenaEndlessOption","CombatArenaEndlessScript",,,
 
+CombatArenaEndlessFightOption,DialogOptionSelected,"$option == CombatArenaEndlessFightOption","CombatArenaEndlessFightScript",,,
+
 CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionOption","CombatArenaEndlessFactionScript",,,
 CombatArenaEndlessFactionRandomOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionRandomOption","CombatArenaEndlessFactionScript random",,,
 CombatArenaEndlessFactionMixedOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionMixedOption","CombatArenaEndlessFactionScript mixed",,,
@@ -40,6 +42,6 @@ gladiator_EndlessIncrement,DialogOptionSelected,$option == DevIncEndless,Gladiat
 gladiator_EndlessReset,DialogOptionSelected,$option == ResetEndless,GladiatorSociety_GladiatorEndless Reset,,,
 ,,,,,,
 # Fleet Encounter,,,,,,
-encounterGS,BeginFleetEncounter,$faction.id == gladiator score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
+encounterGS,BeginFleetEncounter,$faction.id == combat_arena score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
 MakeOtherFleetPreventDisengage tOff true
 MakeOtherFleetAggressive tOff true",,,
