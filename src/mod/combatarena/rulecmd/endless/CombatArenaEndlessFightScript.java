@@ -33,7 +33,6 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
     public void accept(InteractionDialogAPI dialog, MemoryAPI memory) {
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
-        // GladiatorSociety_GladiatorManager.getInstance().createEvent(endcontent);
         dialog.getTextPanel().addParagraph("The mission have be accepted");
         final SectorEntityToken entity = dialog.getInteractionTarget();
         final CombatArenaRecord record = (CombatArenaRecord)Global.getSector().getPersistentData().get(
@@ -58,8 +57,8 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
         config.pullInEnemies = false;
         config.pullInStations = false;
         config.lootCredits = false;
-        config.firstTimeEngageOptionText = "Engage the gladiator fleet";
-        config.afterFirstTimeEngageOptionText = "Re-engage the gladiator fleet";
+        config.firstTimeEngageOptionText = "Engage the opponent fleet";
+        config.afterFirstTimeEngageOptionText = "Re-engage the opponent fleet";
         config.noSalvageLeaveOptionText = "Continue";
         config.dismissOnLeave = true;
         config.printXPToDialog = true;

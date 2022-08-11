@@ -25,8 +25,6 @@ public class CombatArenaMainEntryScript extends BaseCommandPlugin{
         opts.setShortcut("CombatArenaTokenExchangeOption", Keyboard.KEY_T, false, false, false, false);
         opts.addOption("Walk back to docking port", "CombatArenaMainEntryBackOption", "Leave the combat arena");
         opts.setShortcut("CombatArenaMainEntryBackOption", Keyboard.KEY_ESCAPE, false, false, false, false);
-        opts.addOption("(Debug)Enter the old combat area", "gladiatorEndlessBattle", "Start fighting arena");
-        opts.setShortcut("gladiatorEndlessBattle", Keyboard.KEY_K, false, false, false, false);
         return true;
     }
 }

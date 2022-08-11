@@ -34,14 +34,9 @@ CombatArenaEndlessFactionMixedOption,DialogOptionSelected,"$option == CombatAren
 
 #CombatArenaEndlessHullsizeOption
 #CombatArenaEndlessCombatOption
-#
-gladiator_Endless,DialogOptionSelected,$option == gladiatorEndlessBattle,FireAll GladiatorEndless,,,
-gladiator_EndlessByTrigger,GladiatorEndless,,GladiatorSociety_GladiatorEndless Display,"Endless Battle is meant for the thrill of death rather than profit. Every fleet you destroy increases the power of the next.",,
-gladiator_EndlessAccept,DialogOptionSelected,$option == AcceptEndless,GladiatorSociety_GladiatorEndless Accept,,,
-gladiator_EndlessIncrement,DialogOptionSelected,$option == DevIncEndless,GladiatorSociety_GladiatorEndless Increment,,,
-gladiator_EndlessReset,DialogOptionSelected,$option == ResetEndless,GladiatorSociety_GladiatorEndless Reset,,,
+
 ,,,,,,
 # Fleet Encounter,,,,,,
-encounterGS,BeginFleetEncounter,$faction.id == combat_arena score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
+CombatArenaFleetEncounter,BeginFleetEncounter,$faction.id == combat_arena score:100,"AddText ""You're being hailed by $personName."" $faction.baseColor
 MakeOtherFleetPreventDisengage tOff true
 MakeOtherFleetAggressive tOff true",,,
