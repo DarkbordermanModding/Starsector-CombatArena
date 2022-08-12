@@ -2,7 +2,6 @@ package mod.combatarena.rulecmd.endless;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -94,9 +93,7 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
                     {
                         Global.getSector().getPlayerFleet().getCargo().getCredits().add(record.getCreditRewardAmount(record));
                         Global.getSector().getPlayerFleet().getCargo().addCommodity("arena_token", record.getArenaTokenRewardAmount(record));
-                        Random rand = new Random();
-                        float fleetPoint = record.getOpponentFleetPoint() + 40 + rand.nextInt(20);
-                        record.setOpponentFleetPoint(fleetPoint);
+                        record.increaseOpponentFleetPoint();
                         record.randomizeOpponentFaction();
                     } else {
                         dialog.dismiss();
@@ -115,7 +112,7 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
         FleetParamsV3 params = new FleetParamsV3(
                 null,
                 null,
-                record.getOpponentFaction().getId(), // quality will always be reduced by non-market-faction penalty, which is what we want 
+                record.getOpponentFaction().getId(), // quality will always be reduced by non-market-faction penalty, which is what we want
                 null,
                 FleetTypes.PERSON_BOUNTY_FLEET,
                 record.getOpponentFleetPoint(), // combatPts

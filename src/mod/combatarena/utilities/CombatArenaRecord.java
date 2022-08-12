@@ -58,6 +58,11 @@ public class CombatArenaRecord {
         opponentFleetPoint = fleetPoint;
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
+    public void increaseOpponentFleetPoint(){
+        Random rand = new Random();
+        float fleetPoint = getOpponentFleetPoint() + 40 + rand.nextInt(20);
+        setOpponentFleetPoint(fleetPoint);
+    }
 
     public float getCreditRewardAmountWithoutArenaToken(CombatArenaRecord record){
         float shipSizeVary = (opponentMaxShipSize + opponentMinShipSize)/2 + (opponentMaxShipSize - opponentMinShipSize)/1.5f;
@@ -65,9 +70,9 @@ public class CombatArenaRecord {
         return (int)credits;
     }
     public float getArenaTokenRewardAmount(CombatArenaRecord record){
-        return (int)getCreditRewardAmountWithoutArenaToken(record)/250000;
+        return (int)getCreditRewardAmountWithoutArenaToken(record)/200000;
     }
     public float getCreditRewardAmount(CombatArenaRecord record){
-        return (int)getCreditRewardAmountWithoutArenaToken(record)%250000;
+        return (int)getCreditRewardAmountWithoutArenaToken(record)%200000;
     }
 }

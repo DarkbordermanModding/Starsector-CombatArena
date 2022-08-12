@@ -34,6 +34,7 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
         opts.addOption("Fight", "CombatArenaEndlessFightOption");
         opts.addOption("Change opponent faction", "CombatArenaEndlessFactionOption");
         opts.addOption("Change opponent size", "CombatArenaEndlessShipSizeOption");
+        opts.addOption("Change opponent fleet difficulties", "CombatArenaEndlessRoundOption");
         //opts.addOption("Change opponent combat strength", "CombatArenaTokenExchangeBlueprintHullOption");
         opts.addOption("Back", "CombatArenaMainEntryOption");
         opts.setShortcut("CombatArenaMainEntryOption", Keyboard.KEY_ESCAPE, false, false, false, false);

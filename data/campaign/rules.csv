@@ -36,9 +36,9 @@ CombatArenaEndlessShipSizeOption,DialogOptionSelected,"$option == CombatArenaEnd
 CombatArenaEndlessMinShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessMinShipSizeOption","CombatArenaEndlessShipSizeScript min",,,
 CombatArenaEndlessMaxShipSizeOption,DialogOptionSelected,"$option == CombatArenaEndlessMaxShipSizeOption","CombatArenaEndlessShipSizeScript max",,,
 
-#CombatArenaEndlessRoundOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundOption","CombatArenaEndlessRoundScript",,,
-#CombatArenaEndlessRoundIncreaseOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundIncreaseOption","CombatArenaEndlessRoundScript increase",,,
-#CombatArenaEndlessRoundResetOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundResetOption","CombatArenaEndlessRoundScript reset",,,
+CombatArenaEndlessRoundOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundOption","CombatArenaEndlessRoundScript",,,
+CombatArenaEndlessRoundIncreaseOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundIncreaseOption","CombatArenaEndlessRoundScript increase",,,
+CombatArenaEndlessRoundResetOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundResetOption","CombatArenaEndlessRoundScript reset",,,
 
 #CombatArenaEndlessCombatOption
 
