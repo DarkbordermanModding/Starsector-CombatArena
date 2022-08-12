@@ -13,10 +13,17 @@ public class CombatArena extends BaseIndustry {
 
 		int size = market.getSize();
 		demand(Commodities.CREW, size);
-		supply(Commodities.ORGANS, size);
+		demand(Commodities.SHIPS, size-2);
+		supply(Commodities.ORGANS, size-1);
+		supply(Commodities.SHIP_WEAPONS, size-1);
+		supply(Commodities.METALS, size);
+		supply(Commodities.HEAVY_MACHINERY, size-1);
 
-		Pair<String, Integer> deficit = getMaxDeficit(Commodities.CREW);
+		Pair<String, Integer> deficit = getMaxDeficit(Commodities.SHIPS);
 		applyDeficitToProduction(1, deficit,Commodities.ORGANS);
+		applyDeficitToProduction(1, deficit,Commodities.SHIP_WEAPONS);
+		applyDeficitToProduction(1, deficit,Commodities.METALS);
+		applyDeficitToProduction(1, deficit,Commodities.HEAVY_MACHINERY);
 
 		if (!isFunctional()) {
 			supply.clear();

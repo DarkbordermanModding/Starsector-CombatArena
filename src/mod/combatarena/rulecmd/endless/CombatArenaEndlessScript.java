@@ -27,8 +27,9 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
         );
         dialog.getTextPanel().addParagraph(
             "Opponent information:\n" +
-            "Faction" + record.getOpponentFaction().getDisplayName() + "\n" +
-            "Reward" + record.getCreditRewardAmountWithoutArenaToken(record)
+            "Faction: " + record.getOpponentFaction().getDisplayName() + "\n" +
+            "Reward: " + record.getCreditRewardAmount(record) + "\n" +
+            "Token: " + record.getArenaTokenRewardAmount(record)
         );
 
         opts.addOption("Fight", "CombatArenaEndlessFightOption");

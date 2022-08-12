@@ -66,7 +66,7 @@ public class CombatArenaRecord {
 
     public float getCreditRewardAmountWithoutArenaToken(CombatArenaRecord record){
         float shipSizeVary = (opponentMaxShipSize + opponentMinShipSize)/2 + (opponentMaxShipSize - opponentMinShipSize)/1.5f;
-        float credits = (opponentFleetPoint * shipSizeVary/3) * 500;
+        float credits = (opponentFleetPoint * shipSizeVary/3) * 1500;
         return (int)credits;
     }
     public float getArenaTokenRewardAmount(CombatArenaRecord record){

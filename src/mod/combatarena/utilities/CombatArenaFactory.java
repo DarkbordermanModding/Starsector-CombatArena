@@ -166,12 +166,12 @@ public class CombatArenaFactory {
             // Do some custom fleet advanced options
             List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
             for (FleetMemberAPI member : members) {
-                member.setCaptain(
-                    OfficerManagerEvent.createOfficer(
-                        Global.getSector().getFaction(factionId), 1, true
-                    )
-                );
-                member.getVariant().addMod(HullMods.REINFORCEDHULL);
+                // member.setCaptain(
+                //     OfficerManagerEvent.createOfficer(
+                //         Global.getSector().getFaction(factionId), 1, true
+                //     )
+                // );
+                // member.getVariant().addMod(HullMods.REINFORCEDHULL);
                 member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
             }
             fleet.setNoFactionInName(true);
