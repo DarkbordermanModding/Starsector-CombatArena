@@ -20,8 +20,8 @@ CombatArenaTokenExchangeCoreBetaOption,DialogOptionSelected,"$option == CombatAr
 CombatArenaTokenExchangeCoreAlphaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreAlphaOption","CombatArenaTokenExchangeCoreScript alpha",,,
 CombatArenaTokenExchangeCoreOmegaOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCoreOmegaOption","CombatArenaTokenExchangeCoreScript omega",,,
 
-# Not yet implemented
-#CombatArenaTokenExchangeCreditOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditOption","CombatArenaTokenExchangeBlueprintScript",,,
+CombatArenaTokenExchangeCreditOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditOption","CombatArenaTokenExchangeCreditScript",,,
+CombatArenaTokenExchangeCreditYesOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeCreditYesOption","CombatArenaTokenExchangeCreditScript yes",,,
 
 # Arena Endless Battle,,,,,,
 CombatArenaEndlessOption,DialogOptionSelected,"$option == CombatArenaEndlessOption","CombatArenaEndlessScript",,,
