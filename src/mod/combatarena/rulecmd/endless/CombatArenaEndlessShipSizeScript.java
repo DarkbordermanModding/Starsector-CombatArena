@@ -37,12 +37,8 @@ public class CombatArenaEndlessShipSizeScript extends BaseCommandPlugin {
             arg = params.get(0).getString(memoryMap);
         }catch(IndexOutOfBoundsException e){}
 
-        if(arg == null){
-            dialog.getTextPanel().addParagraph("View blueprint section");
-        }
+        if(arg == null){}
         else{
-            dialog.getTextPanel().addParagraph("Redeem blueprint using token" + arg);
-
             switch(arg){
                 case "max":{
                     int max = record.opponentMaxShipSize + 1;

@@ -44,7 +44,7 @@ public class CombatArenaTokenExchangeCreditScript extends BaseCommandPlugin{
         opts.clearOptions();
 
         opts.addOption("Yes", "CombatArenaTokenExchangeCreditYesOption");
-        if(cargo.getCommodityQuantity("arena_token") > 0f){
+        if(cargo.getCommodityQuantity("arena_token") <= 0f){
             opts.setEnabled("CombatArenaTokenExchangeCreditYesOption", false);
         }
         opts.addOption("No/Leave", "CombatArenaTokenExchangeOption");
