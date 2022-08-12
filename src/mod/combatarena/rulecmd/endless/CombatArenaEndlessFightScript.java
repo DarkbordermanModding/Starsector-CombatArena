@@ -2,6 +2,7 @@ package mod.combatarena.rulecmd.endless;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -92,9 +93,11 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
                     if(context.didPlayerWinEncounterOutright())
                     {
                         Global.getSector().getPlayerFleet().getCargo().getCredits().add(record.getCreditRewardAmount(record));
-                        Global.getSector().getPlayerFleet().getCargo().addCommodity("arena_token", record.getCreditRewardAmount(record));
-                        // increase difficulty
-                        // randomize faction
+                        Global.getSector().getPlayerFleet().getCargo().addCommodity("arena_token", record.getArenaTokenRewardAmount(record));
+                        Random rand = new Random();
+                        float fleetPoint = record.getOpponentFleetPoint() + 40 + rand.nextInt(20);
+                        record.setOpponentFleetPoint(fleetPoint);
+                        record.randomizeOpponentFaction();
                     } else {
                         dialog.dismiss();
                     }
