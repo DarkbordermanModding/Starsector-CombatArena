@@ -6,6 +6,7 @@ import java.util.Map;
 import org.lwjgl.input.Keyboard;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
@@ -23,19 +24,18 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
             arg = params.get(0).getString(memoryMap);
         }catch(IndexOutOfBoundsException e){}
 
-        if(arg == null){
-            dialog.getTextPanel().addParagraph("View blueprint section");
-        }
+        CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
+        if(arg == null){}
         else{
-            dialog.getTextPanel().addParagraph("Redeem blueprint using token" + arg);
-
             CombatArenaRecord record = new CombatArenaRecord();
             switch(arg){
                 case "random":{
+                    cargo.removeCommodity("arena_token", 2f);
                     record.randomizeOpponentFaction();
                     break;
                 }
                 case "mixed":{
+                    cargo.removeCommodity("arena_token", 2f);
                     record.setOpponentFaction(Global.getSector().getFaction("combat_arena"));
                     break;
                 }
@@ -45,8 +45,14 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
 
-        opts.addOption("Randomize faction", "CombatArenaEndlessFactionRandomOption");
-        opts.addOption("Play with mixed faction", "CombatArenaEndlessFactionMixedOption");
+        opts.addOption("Randomize faction(2 token)", "CombatArenaEndlessFactionRandomOption");
+        if(cargo.getCommodityQuantity("arena_token") < 2f){
+            opts.setEnabled("CombatArenaEndlessFactionRandomOption", false);
+        }
+        opts.addOption("Play with mixed faction(2 token)", "CombatArenaEndlessFactionMixedOption");
+        if(cargo.getCommodityQuantity("arena_token") < 2f){
+            opts.setEnabled("CombatArenaEndlessFactionMixedOption", false);
+        }
         opts.addOption("Back", "CombatArenaEndlessOption");
         opts.setShortcut("CombatArenaEndlessOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
