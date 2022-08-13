@@ -112,7 +112,7 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
         FleetParamsV3 params = new FleetParamsV3(
                 null,
                 null,
-                record.getOpponentFaction().getId(), // quality will always be reduced by non-market-faction penalty, which is what we want
+                record.getOpponentFaction().getId(),
                 null,
                 FleetTypes.PERSON_BOUNTY_FLEET,
                 record.getOpponentFleetPoint(), // combatPts

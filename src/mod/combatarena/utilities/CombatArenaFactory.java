@@ -10,10 +10,8 @@ import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
-import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
@@ -57,27 +55,14 @@ public class CombatArenaFactory {
             fleet.getFleetData().setOnlySyncMemberLists(true);
 
             FactionDoctrineAPI doctrine = fleet.getFaction().getDoctrine();
-            if (params.doctrineOverride != null) {
-                doctrine = params.doctrineOverride;
-            }
-
-            float numShipsMult = 1f;
-            if (params.ignoreMarketFleetSizeMult == null || !params.ignoreMarketFleetSizeMult) {
-                numShipsMult = market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).computeEffective(0f);
-            }
 
             Random random = new Random();
             if (params.random != null) {
                 random = params.random;
             }
 
-            float combatPts = params.combatPts;//(numShipsMult + 3);
+            float combatPts = params.combatPts;
 
-            if (params.onlyApplyFleetSizeToCombatShips != null && params.onlyApplyFleetSizeToCombatShips) {
-                numShipsMult = 1f;
-            }
-
-            float freighterPts = params.freighterPts * numShipsMult;
             if (combatPts < 10 && combatPts > 0) {
                 combatPts = Math.max(combatPts, 5 + random.nextInt(6));
             }
@@ -142,21 +127,7 @@ public class CombatArenaFactory {
 
             warships += (combatPts - warships - carriers - phase);
 
-            if (params.treatCombatFreighterSettingAsFraction != null && params.treatCombatFreighterSettingAsFraction) {
-                float combatFreighters = (int) Math.min(freighterPts * 1.5f, warships * 1.5f) * doctrine.getCombatFreighterProbability();
-                float added = addCombatFreighterFleetPoints(fleet, random, combatFreighters, params);
-                freighterPts -= added * 0.5f;
-                warships -= added * 0.5f;
-            } else if (freighterPts > 0 && random.nextFloat() < doctrine.getCombatFreighterProbability()) {
-                float combatFreighters = (int) Math.min(freighterPts * 1.5f, warships * 1.5f);
-                float added = addCombatFreighterFleetPoints(fleet, random, combatFreighters, params);
-                freighterPts -= added * 0.5f;
-                warships -= added * 0.5f;
-            }
-
             addCombatFleetPoints(fleet, random, warships, carriers, phase, params);
-
-            addFreighterFleetPoints(fleet, random, freighterPts, params);
             fleet.getFleetData().sort();
             fleet.forceSync();
 
