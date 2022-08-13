@@ -41,15 +41,9 @@ public class CombatArenaFactory {
             }
 
             String factionId = params.factionId;
-            if (factionId == null) {
-                factionId = params.source.getFactionId();
-            }
 
-            if(factionId.equals("combat_arena")){
-                params.mode = ShipPickMode.ALL;
-            }else{
-                params.mode = ShipPickMode.PRIORITY_THEN_ALL;
-            }
+            if(factionId.equals("combat_arena")) params.mode = ShipPickMode.ALL;
+            else params.mode = ShipPickMode.PRIORITY_THEN_ALL;
 
             CampaignFleetAPI fleet = createEmptyFleet(factionId, params.fleetType, market);
             fleet.getFleetData().setOnlySyncMemberLists(true);
@@ -57,15 +51,8 @@ public class CombatArenaFactory {
             FactionDoctrineAPI doctrine = fleet.getFaction().getDoctrine();
 
             Random random = new Random();
-            if (params.random != null) {
-                random = params.random;
-            }
 
             float combatPts = params.combatPts;
-
-            if (combatPts < 10 && combatPts > 0) {
-                combatPts = Math.max(combatPts, 5 + random.nextInt(6));
-            }
 
             float dW = (float) doctrine.getWarships() + random.nextInt(3) - 2;
             float dC = (float) doctrine.getCarriers() + random.nextInt(3) - 2;
