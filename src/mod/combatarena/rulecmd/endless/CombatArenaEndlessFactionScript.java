@@ -27,7 +27,9 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
         CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
         if(arg == null){}
         else{
-            CombatArenaRecord record = new CombatArenaRecord();
+            CombatArenaRecord record = (CombatArenaRecord)Global.getSector().getPersistentData().get(
+                CombatArenaRecord.COMBAT_ARENA_DATA_STORAGE_KEY
+            );
             switch(arg){
                 case "random":{
                     cargo.removeCommodity("arena_token", 2f);
