@@ -93,4 +93,29 @@ public class CombatArenaRecord {
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
 
+    public boolean getOpponentCarrier(){
+        return opponentCarrier;
+    }
+    public void setOpponentCarrier(boolean useCarrier){
+        opponentCarrier = useCarrier;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public boolean getOpponentPhaser(){
+        return opponentPhaser;
+    }
+    public void setOpponentPhaser(boolean usePhaser){
+        opponentPhaser = usePhaser;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public boolean getOpponentFreighter(){
+        return opponentFreighter;
+    }
+    public void setOpponentFreighter(boolean useFreighter){
+        opponentFreighter = useFreighter;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+
 }
