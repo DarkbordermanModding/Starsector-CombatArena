@@ -151,15 +151,7 @@ public class CombatArenaFactory {
         Random random = new Random();
 
         // Create parameter for picking doctrine only
-        FleetParamsV3 params = new FleetParamsV3(market, null, null, null, null,
-                0f, // combatPts
-                0f, // freighterPts
-                0f, // tankerPts
-                0f, // transportPts
-                0f, // linerPts
-                0f, // utilityPts
-                0f // qualityMod
-        );
+        FleetParamsV3 params = new FleetParamsV3(market, null, null, null, null, 0f, 0f, 0f, 0f, 0f, 0f, 0f);
         params.factionId = record.getOpponentFaction().getId();
         params.minShipSize = record.opponentMinShipSize;
         params.maxShipSize = record.opponentMaxShipSize;
@@ -167,9 +159,20 @@ public class CombatArenaFactory {
         else params.mode = ShipPickMode.PRIORITY_THEN_ALL;
 
         CampaignFleetAPI fleet = createEmptyFleet(record.getOpponentFaction().getId(), FleetTypes.PERSON_BOUNTY_FLEET, market);
+        float averageFleetPoint = record.getOpponentFleetPoint() / record.getDistributionDenominator();
+        // prevent too small fleet and no spawn
+        if(averageFleetPoint < 10f) averageFleetPoint = 10f;
 
-        //addCombatFleetPoints(fleet, random, record.getOpponentFleetPoint(), 0f, 0f, params);
-        addTransportFleetPoints(fleet, random, record.getOpponentFleetPoint(), params);
+        float warshipFleetPoint = 0f;
+        if(record.getOpponentWarship()) warshipFleetPoint = averageFleetPoint;
+        float carrierFleetPoint = 0f;
+        if(record.getOpponentCarrier()) carrierFleetPoint = averageFleetPoint;
+        float phaserFleetPoint = 0f;
+        if(record.getOpponentPhaser()) phaserFleetPoint = averageFleetPoint;
+
+        addCombatFleetPoints(fleet, random, warshipFleetPoint, carrierFleetPoint, phaserFleetPoint, params);
+        if(record.getOpponentFreighter()) addFreighterFleetPoints(fleet, random, averageFleetPoint, params);
+
         // If result fleet combat point is too small, will generate default ship size to compensate it.
         if(record.getOpponentFleetPoint() - fleet.getFleetPoints() > 10f){
             LOG.info("||| Fleet to small, try to regen" + fleet.getFleetPoints());
@@ -191,7 +194,6 @@ public class CombatArenaFactory {
             // member.getVariant().addMod(HullMods.REINFORCEDHULL);
             //member.getVariant().addPermaMod(HullMods.REINFORCEDHULL, true);
         }
-
         return fleet;
     }
 }
