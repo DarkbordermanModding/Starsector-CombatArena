@@ -117,5 +117,25 @@ public class CombatArenaRecord {
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
 
+    public boolean getOpponentTanker(){
+        return opponentTanker;
+    }
+    public void setOpponentTanker(boolean useTanker){
+        opponentTanker = useTanker;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
 
+    public int getDistributionDenominator(){
+        int denominator = 0;
+        if(opponentWarship) denominator++;
+        if(opponentCarrier) denominator++;
+        if(opponentPhaser) denominator++;
+        if(opponentFreighter) denominator++;
+        if(opponentTanker) denominator++;
+        if(opponentLiner) denominator++;
+        if(opponentTransport) denominator++;
+        if(opponentUtilities) denominator++;
+        if(denominator == 0) return 1;
+        return denominator;
+    }
 }
