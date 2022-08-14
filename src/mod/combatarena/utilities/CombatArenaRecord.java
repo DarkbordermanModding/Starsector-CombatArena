@@ -125,6 +125,30 @@ public class CombatArenaRecord {
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
 
+    public boolean getOpponentLiner(){
+        return opponentLiner;
+    }
+    public void setOpponentLiner(boolean useLiner){
+        opponentLiner = useLiner;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public boolean getOpponentTransport(){
+        return opponentTransport;
+    }
+    public void setOpponentTransport(boolean useTransport){
+        opponentTransport = useTransport;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public boolean getOpponentUtilities(){
+        return opponentUtilities;
+    }
+    public void setOpponentUtilities(boolean useUtilities){
+        opponentUtilities = useUtilities;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
     public int getDistributionDenominator(){
         int denominator = 0;
         if(opponentWarship) denominator++;
