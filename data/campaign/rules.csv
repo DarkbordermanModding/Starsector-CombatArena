@@ -40,11 +40,15 @@ CombatArenaEndlessRoundOption,DialogOptionSelected,"$option == CombatArenaEndles
 CombatArenaEndlessRoundIncreaseOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundIncreaseOption","CombatArenaEndlessRoundScript increase",,,
 CombatArenaEndlessRoundResetOption,DialogOptionSelected,"$option == CombatArenaEndlessRoundResetOption","CombatArenaEndlessRoundScript reset",,,
 
-#CombatArenaEndlessShipTypeOption,DialogOptionSelected,"$option == CombatArenaEndlessShipSizeOption","CombatArenaEndlessShipSizeScript",,,
+#CombatArenaEndlessShipTypeOption,DialogOptionSelected,"$option == CombatArenaEndlessShipTypeOption","CombatArenaEndlessShipTypeScript",,,
 #CombatArenaEndlessShipTypeWarshipOption
 #CombatArenaEndlessShipTypeCarrierOption
-#CombatArenaEndlessShipTypePhaser
-#
+#CombatArenaEndlessShipTypePhaserOption
+#CombatArenaEndlessShipTypeFreighterOption
+#CombatArenaEndlessShipTypeTankerOption
+#CombatArenaEndlessShipTypeLinerOption
+#CombatArenaEndlessShipTypeTransportOption
+#CombatArenaEndlessShipTypeUtilitiesOption
 
 #CombatArenaEndlessCombatOption
 
