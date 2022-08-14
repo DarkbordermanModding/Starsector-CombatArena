@@ -10,13 +10,11 @@ import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.fleet.ShipFilter;
 
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
-import com.fs.starfarer.api.impl.campaign.ids.ShipRoles;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
 import org.apache.log4j.Logger;
@@ -149,11 +147,6 @@ public class CombatArenaFactory {
     public static CampaignFleetAPI createFleetV2(CombatArenaRecord record) {
         // create mock market
         MarketAPI market = Global.getFactory().createMarket("fake", "fake", 5);
-        market.getStability().modifyFlat("fake", 10000);
-        market.setFactionId(record.getOpponentFaction().getId());
-        market.getStats().getDynamic().getMod(Stats.FLEET_QUALITY_MOD).modifyFlat("fake", BASE_QUALITY_WHEN_NO_MARKET);
-        market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).modifyFlat("fake", 1f);
-
         Random random = new Random();
 
         // Create parameter for picking doctrine only
@@ -164,7 +157,7 @@ public class CombatArenaFactory {
                 0f, // transportPts
                 0f, // linerPts
                 0f, // utilityPts
-                1f // qualityMod
+                0f // qualityMod
         );
         params.factionId = record.getOpponentFaction().getId();
         params.minShipSize = record.opponentMinShipSize;
@@ -173,21 +166,18 @@ public class CombatArenaFactory {
         else params.mode = ShipPickMode.PRIORITY_THEN_ALL;
 
         CampaignFleetAPI fleet = createEmptyFleet(record.getOpponentFaction().getId(), FleetTypes.PERSON_BOUNTY_FLEET, market);
-        FactionDoctrineAPI doctrine = fleet.getFaction().getDoctrine();
 
         addCombatFleetPoints(fleet, random, record.getOpponentFleetPoint(), 0f, 0f, params);
 
         // If result fleet combat point is too small, will generate default ship size to compensate it.
-        if(record.getOpponentFleetPoint() - fleet.getFleetPoints() > 12f){
+        if(record.getOpponentFleetPoint() - fleet.getFleetPoints() > 10f){
             LOG.info("||| Fleet to small, try to regen" + fleet.getFleetPoints());
             float diff = record.getOpponentFleetPoint() - fleet.getFleetPoints();
             params.minShipSize = 1;
             params.maxShipSize = record.opponentMaxShipSize;
-            params.mode = ShipPickMode.ALL;
             addCombatFleetPoints(fleet, random, diff, 0f, 0f, params);
         }
         LOG.info("||| " + fleet.getFleetPoints());
-        LOG.info("||| " + fleet.getFleetSizeCount());
 
         return fleet;
     }
