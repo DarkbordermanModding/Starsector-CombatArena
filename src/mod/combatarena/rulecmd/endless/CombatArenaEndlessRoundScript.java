@@ -37,7 +37,7 @@ public class CombatArenaEndlessRoundScript extends BaseCommandPlugin {
                     break;
                 }
                 case "reset":{
-                    record.setOpponentFleetPoint(100f);
+                    record.setOpponentFleetPoint(60f);
                     break;
                 }
             }

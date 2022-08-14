@@ -14,6 +14,7 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
+import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
@@ -167,8 +168,8 @@ public class CombatArenaFactory {
 
         CampaignFleetAPI fleet = createEmptyFleet(record.getOpponentFaction().getId(), FleetTypes.PERSON_BOUNTY_FLEET, market);
 
-        addCombatFleetPoints(fleet, random, record.getOpponentFleetPoint(), 0f, 0f, params);
-
+        //addCombatFleetPoints(fleet, random, record.getOpponentFleetPoint(), 0f, 0f, params);
+        addTransportFleetPoints(fleet, random, record.getOpponentFleetPoint(), params);
         // If result fleet combat point is too small, will generate default ship size to compensate it.
         if(record.getOpponentFleetPoint() - fleet.getFleetPoints() > 10f){
             LOG.info("||| Fleet to small, try to regen" + fleet.getFleetPoints());
@@ -178,6 +179,18 @@ public class CombatArenaFactory {
             addCombatFleetPoints(fleet, random, diff, 0f, 0f, params);
         }
         LOG.info("||| " + fleet.getFleetPoints());
+
+        List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
+        for (FleetMemberAPI member : members) {
+            member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
+            // member.setCaptain(
+            //     OfficerManagerEvent.createOfficer(
+            //         Global.getSector().getFaction(factionId), 1, true
+            //     )
+            // );
+            // member.getVariant().addMod(HullMods.REINFORCEDHULL);
+            //member.getVariant().addPermaMod(HullMods.REINFORCEDHULL, true);
+        }
 
         return fleet;
     }

@@ -13,7 +13,16 @@ public class CombatArenaRecord {
     public String opponentFaction = "hegemony";
     public int opponentMinShipSize = 2;
     public int opponentMaxShipSize = 2;
-    public float opponentFleetPoint = 100f;
+    public float opponentFleetPoint = 60f;
+    public boolean opponentWarship = true;
+    public boolean opponentCarrier = true;
+    public boolean opponentPhaser = true;
+    public boolean opponentFreighter = false;
+    public boolean opponentTanker = false;
+    public boolean opponentLiner = false;
+    public boolean opponentTransport = false;
+    public boolean opponentUtilities = false;
+
     //public static final String opponentCombatOption;
 
     public FactionAPI getOpponentFaction(){
@@ -75,4 +84,13 @@ public class CombatArenaRecord {
     public float getCreditRewardAmount(CombatArenaRecord record){
         return (int)getCreditRewardAmountWithoutArenaToken(record)%200000;
     }
+
+    public boolean getOpponentWarship(){
+        return opponentWarship;
+    }
+    public void setOpponentWarship(boolean useWarship){
+        opponentWarship = useWarship;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
 }
