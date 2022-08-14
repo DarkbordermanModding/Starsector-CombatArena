@@ -42,6 +42,26 @@ public class CombatArenaEndlessShipTypeScript extends BaseCommandPlugin {
                     record.setOpponentPhaser(!record.getOpponentPhaser());
                     break;
                 }
+                case "freighter":{
+                    record.setOpponentFreighter(!record.getOpponentFreighter());
+                    break;
+                }
+                case "tanker":{
+                    record.setOpponentTanker(!record.getOpponentTanker());
+                    break;
+                }
+                case "liner":{
+                    record.setOpponentLiner(!record.getOpponentLiner());
+                    break;
+                }
+                case "transport":{
+                    record.setOpponentTransport(!record.getOpponentTransport());
+                    break;
+                }
+                case "utilities":{
+                    record.setOpponentUtilities(!record.getOpponentUtilities());
+                    break;
+                }
             }
         }
 
@@ -51,6 +71,11 @@ public class CombatArenaEndlessShipTypeScript extends BaseCommandPlugin {
         opts.addOption("Enable Warship: " + record.getOpponentWarship(), "CombatArenaEndlessShipTypeWarshipOption");
         opts.addOption("Enable Carrier: " + record.getOpponentCarrier(), "CombatArenaEndlessShipTypeCarrierOption");
         opts.addOption("Enable Phase ship: " + record.getOpponentPhaser(), "CombatArenaEndlessShipTypePhaserOption");
+        opts.addOption("Enable Freighter: " + record.getOpponentFreighter(), "CombatArenaEndlessShipTypeFreighterOption");
+        opts.addOption("Enable Tanker: " + record.getOpponentTanker(), "CombatArenaEndlessShipTypeTankerOption");
+        opts.addOption("Enable Liner: " + record.getOpponentLiner(), "CombatArenaEndlessShipTypeLinerOption");
+        opts.addOption("Enable Transport: " + record.getOpponentTransport(), "CombatArenaEndlessShipTypeTransportOption");
+        opts.addOption("Enable Utilities: " + record.getOpponentUtilities(), "CombatArenaEndlessShipTypeUtilitiesOption");
 
         opts.addOption("Back", "CombatArenaEndlessOption");
         opts.setShortcut("CombatArenaEndlessOption", Keyboard.KEY_ESCAPE, false, false, false, false);

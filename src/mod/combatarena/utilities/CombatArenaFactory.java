@@ -48,6 +48,10 @@ public class CombatArenaFactory {
 
         addCombatFleetPoints(fleet, random, warshipFleetPoint, carrierFleetPoint, phaserFleetPoint, params);
         if(record.getOpponentFreighter()) addFreighterFleetPoints(fleet, random, averageFleetPoint, params);
+        if(record.getOpponentTanker()) addTankerFleetPoints(fleet, random, averageFleetPoint, params);
+        if(record.getOpponentLiner()) addLinerFleetPoints(fleet, random, averageFleetPoint, params);
+        if(record.getOpponentTransport()) addTransportFleetPoints(fleet, random, averageFleetPoint, params);
+        if(record.getOpponentUtilities()) addUtilityFleetPoints(fleet, random, averageFleetPoint, params);
 
         // If result fleet combat point is too small, will generate default ship size to compensate it.
         if(record.getOpponentFleetPoint() - fleet.getFleetPoints() > 10f){
