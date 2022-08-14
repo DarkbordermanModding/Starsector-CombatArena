@@ -125,6 +125,6 @@ public class CombatArenaEndlessFightScript extends BaseCommandPlugin{
         );
         params.minShipSize = record.opponentMinShipSize;
         params.maxShipSize = record.opponentMaxShipSize;
-        return CombatArenaFactory.createFleet(params);
+        return CombatArenaFactory.createFleetV2(record);
     }
 }

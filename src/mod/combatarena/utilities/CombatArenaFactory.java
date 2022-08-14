@@ -12,6 +12,7 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
+import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
@@ -113,7 +114,7 @@ public class CombatArenaFactory {
             int phase = (int) (combatPts * dP / doctrineTotal);
 
             warships += (combatPts - warships - carriers - phase);
-
+            params.combatPts = 0f;
             addCombatFleetPoints(fleet, random, warships, carriers, phase, params);
             fleet.getFleetData().sort();
             fleet.forceSync();
@@ -141,5 +142,42 @@ public class CombatArenaFactory {
             Misc.makeImportant(fleet, "combat_arena", 120);
             return fleet;
         } finally {}
+    }
+    public static CampaignFleetAPI createFleetV2(CombatArenaRecord record) {
+        // create mock market
+        MarketAPI market = Global.getFactory().createMarket("fake", "fake", 5);
+        market.getStability().modifyFlat("fake", 10000);
+        market.setFactionId(record.getOpponentFaction().getId());
+        market.getStats().getDynamic().getMod(Stats.FLEET_QUALITY_MOD).modifyFlat("fake", BASE_QUALITY_WHEN_NO_MARKET);
+        market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).modifyFlat("fake", 1f);
+
+        Random random = new Random();
+
+        // Create parameter for picking doctrine only
+        FleetParamsV3 params = new FleetParamsV3(market, null, null, null, null,
+                0f, // combatPts
+                0f, // freighterPts
+                0f, // tankerPts
+                0f, // transportPts
+                0f, // linerPts
+                0f, // utilityPts
+                1f // qualityMod
+        );
+        params.factionId = record.getOpponentFaction().getId();
+        params.minShipSize = record.opponentMinShipSize;
+        params.maxShipSize = record.opponentMaxShipSize;
+        if(params.factionId.equals("combat_arena")) params.mode = ShipPickMode.ALL;
+        else params.mode = ShipPickMode.PRIORITY_THEN_ALL;
+
+        CampaignFleetAPI fleet = createEmptyFleet(record.getOpponentFaction().getId(), FleetTypes.PERSON_BOUNTY_FLEET, market);
+        //FactionDoctrineAPI doctrine = fleet.getFaction().getDoctrine();
+
+
+        addCombatFleetPoints(fleet, random, record.getOpponentFleetPoint(), 0f, 0f, params);
+
+        LOG.info("||| " + fleet.getFleetPoints());
+        LOG.info("||| " + fleet.getFleetSizeCount());
+
+        return fleet;
     }
 }
