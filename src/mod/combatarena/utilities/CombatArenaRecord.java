@@ -75,7 +75,23 @@ public class CombatArenaRecord {
 
     public float getCreditRewardAmountWithoutArenaToken(CombatArenaRecord record){
         float shipSizeVary = (opponentMaxShipSize + opponentMinShipSize)/2 + (opponentMaxShipSize - opponentMinShipSize)/1.5f;
-        float credits = (opponentFleetPoint * shipSizeVary/3) * 1500;
+
+        float shipTypeWeight = 0f;
+        if(opponentWarship) shipTypeWeight += 1.1f;
+        if(opponentCarrier) shipTypeWeight += 1.0f;
+        if(opponentPhaser) shipTypeWeight += 1.2f;
+        if(opponentFreighter) shipTypeWeight += 0.1f;
+        if(opponentTanker) shipTypeWeight += 0.1f;
+        if(opponentLiner) shipTypeWeight += 0.1f;
+        if(opponentTransport) shipTypeWeight += 0.1f;
+        if(opponentUtilities) shipTypeWeight += 0.1f;
+        if(shipTypeWeight == 0f) shipTypeWeight = 1.1f;
+
+        float credits = (
+            opponentFleetPoint *
+            shipSizeVary/3 *
+            shipTypeWeight/record.getDistributionDenominator()
+        ) * 1500;
         return (int)credits;
     }
     public float getArenaTokenRewardAmount(CombatArenaRecord record){
