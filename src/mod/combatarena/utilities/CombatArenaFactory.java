@@ -194,6 +194,13 @@ public class CombatArenaFactory {
             // member.getVariant().addMod(HullMods.REINFORCEDHULL);
             //member.getVariant().addPermaMod(HullMods.REINFORCEDHULL, true);
         }
+        fleet.setNoFactionInName(true);
+        fleet.setFaction("combat_arena", true);
+        fleet.setName("Opponent fleet");
+        fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
+        fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+        fleet.getMemoryWithoutUpdate().set("$dialog", "The opponent glares at you briefly before shutting down the comm link.");
+        Misc.makeImportant(fleet, "combat_arena", 120);
         return fleet;
     }
 }
