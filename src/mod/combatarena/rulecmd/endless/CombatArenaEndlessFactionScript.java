@@ -32,12 +32,10 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
             );
             switch(arg){
                 case "random":{
-                    cargo.removeCommodity("arena_token", 2f);
                     record.randomizeOpponentFaction();
                     break;
                 }
                 case "mixed":{
-                    cargo.removeCommodity("arena_token", 2f);
                     record.setOpponentFaction(Global.getSector().getFaction("combat_arena"));
                     break;
                 }
@@ -47,11 +45,11 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
 
-        opts.addOption("Randomize faction(2 token)", "CombatArenaEndlessFactionRandomOption");
+        opts.addOption("Randomize faction", "CombatArenaEndlessFactionRandomOption");
         if(cargo.getCommodityQuantity("arena_token") < 2f){
             opts.setEnabled("CombatArenaEndlessFactionRandomOption", false);
         }
-        opts.addOption("Play with mixed faction(2 token)", "CombatArenaEndlessFactionMixedOption");
+        opts.addOption("Play with mixed faction", "CombatArenaEndlessFactionMixedOption");
         if(cargo.getCommodityQuantity("arena_token") < 2f){
             opts.setEnabled("CombatArenaEndlessFactionMixedOption", false);
         }

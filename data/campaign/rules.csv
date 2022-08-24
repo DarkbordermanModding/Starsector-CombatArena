@@ -10,7 +10,6 @@ CombatArenaMainEntryBackOption,DialogOptionSelected,"$option == CombatArenaMainE
 CombatArenaTokenExchangeOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeOption","CombatArenaTokenExchangeMainEntry",,,
 CombatArenaTokenExchangeBlueprintOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintOption","CombatArenaTokenExchangeBlueprintScript",,,
 CombatArenaTokenExchangeBlueprintWeaponOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintWeaponOption","CombatArenaTokenExchangeBlueprintScript weapon",,,
-CombatArenaTokenExchangeBlueprintFighterOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintFighterOption","CombatArenaTokenExchangeBlueprintScript fighter",,,
 CombatArenaTokenExchangeBlueprintHullmodOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullmodOption","CombatArenaTokenExchangeBlueprintScript hullmod",,,
 CombatArenaTokenExchangeBlueprintHullOption,DialogOptionSelected,"$option == CombatArenaTokenExchangeBlueprintHullOption","CombatArenaTokenExchangeBlueprintScript hull",,,
 
