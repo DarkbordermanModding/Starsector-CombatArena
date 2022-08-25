@@ -6,7 +6,6 @@ import java.util.Map;
 import org.lwjgl.input.Keyboard;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.OptionPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
@@ -24,7 +23,6 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
             arg = params.get(0).getString(memoryMap);
         }catch(IndexOutOfBoundsException e){}
 
-        CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
         if(arg == null){}
         else{
             CombatArenaRecord record = (CombatArenaRecord)Global.getSector().getPersistentData().get(
@@ -46,13 +44,7 @@ public class CombatArenaEndlessFactionScript extends BaseCommandPlugin {
         opts.clearOptions();
 
         opts.addOption("Randomize faction", "CombatArenaEndlessFactionRandomOption");
-        if(cargo.getCommodityQuantity("arena_token") < 2f){
-            opts.setEnabled("CombatArenaEndlessFactionRandomOption", false);
-        }
         opts.addOption("Play with mixed faction", "CombatArenaEndlessFactionMixedOption");
-        if(cargo.getCommodityQuantity("arena_token") < 2f){
-            opts.setEnabled("CombatArenaEndlessFactionMixedOption", false);
-        }
         opts.addOption("Back", "CombatArenaEndlessOption");
         opts.setShortcut("CombatArenaEndlessOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;
