@@ -21,7 +21,7 @@ public class CombatArenaFactory {
 
     public static final Logger LOG = Global.getLogger(CombatArenaFactory.class);
 
-    public static CampaignFleetAPI createFleetV2(CombatArenaRecord record) {
+    public static CampaignFleetAPI createFleetByFleetParam(CombatArenaRecord record) {
         // create mock market
         MarketAPI market = Global.getFactory().createMarket("fake", "fake", 5);
         Random random = new Random();

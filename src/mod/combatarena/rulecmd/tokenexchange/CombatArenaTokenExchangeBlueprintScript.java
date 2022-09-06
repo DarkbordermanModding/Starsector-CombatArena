@@ -87,8 +87,6 @@ public class CombatArenaTokenExchangeBlueprintScript extends BaseCommandPlugin{
         if(cargo.getCommodityQuantity("arena_token") < 4f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintHullmodOption", false);
         }
-        //Global.getSector().getFaction("baryonic_dynamics").setShowInIntelTab(false);
-        //Global.getSector().getEconomy().removeMarket(Global.getSector().getEconomy().getMarket("derinkuyu_market"));
         opts.addOption("Redeem hull blueprint(8 token)", "CombatArenaTokenExchangeBlueprintHullOption");
         if(cargo.getCommodityQuantity("arena_token") < 8f){
             opts.setEnabled("CombatArenaTokenExchangeBlueprintHullOption", false);
