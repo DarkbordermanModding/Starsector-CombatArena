@@ -79,4 +79,11 @@ public class CombatArenaFactory {
         Misc.makeImportant(fleet, "combat_arena", 120);
         return fleet;
     }
+
+    public static CampaignFleetAPI createFleetByFleetPoints(CombatArenaRecord record) {
+        // stub: not yet implemented
+        MarketAPI market = Global.getFactory().createMarket("fake", "fake", 5);
+        CampaignFleetAPI fleet = createEmptyFleet(record.getOpponentFaction().getId(), FleetTypes.PERSON_BOUNTY_FLEET, market);
+        return fleet;
+    }
 }
