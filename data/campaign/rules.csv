@@ -27,6 +27,10 @@ CombatArenaEndlessOption,DialogOptionSelected,"$option == CombatArenaEndlessOpti
 
 CombatArenaEndlessFightOption,DialogOptionSelected,"$option == CombatArenaEndlessFightOption","CombatArenaEndlessFightScript",,,
 
+#CombatArenaEndlessModeOption,DialogOptionSelected,"$option == CombatArenaEndlessModeOption"
+#CombatArenaEndlessFleetParamOption,DialogOptionSelected,"$option == CombatArenaEndlessFleetParamOption"
+#CombatArenaEndlessFleetPointsOption,DialogOptionSelected,"$option == CombatArenaEndlessFleetPointsOption"
+
 CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionOption","CombatArenaEndlessFactionScript",,,
 CombatArenaEndlessFactionRandomOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionRandomOption","CombatArenaEndlessFactionScript random",,,
 CombatArenaEndlessFactionMixedOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionMixedOption","CombatArenaEndlessFactionScript mixed",,,
