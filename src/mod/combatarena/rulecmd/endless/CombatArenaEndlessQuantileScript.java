@@ -30,19 +30,19 @@ public class CombatArenaEndlessQuantileScript extends BaseCommandPlugin{
             );
             switch(arg){
                 case "q1":{
-                    record.setOpponentMode("fleetparam");
+                    record.setOpponentQuantile(1);
                     break;
                 }
                 case "q2":{
-                    record.setOpponentMode("fleetpoints");
+                    record.setOpponentQuantile(2);
                     break;
                 }
                 case "q3":{
-                    record.setOpponentMode("fleetparam");
+                    record.setOpponentQuantile(3);
                     break;
                 }
                 case "q4":{
-                    record.setOpponentMode("fleetpoints");
+                    record.setOpponentQuantile(4);
                     break;
                 }
             }
@@ -51,9 +51,10 @@ public class CombatArenaEndlessQuantileScript extends BaseCommandPlugin{
         OptionPanelAPI opts = dialog.getOptionPanel();
         opts.clearOptions();
 
-        opts.addOption("Set Q1 quantile", "CombatArenaEndlessModeFleetParamOption");
-
-        opts.addOption("Fleet point mode", "CombatArenaEndlessModeFleetPointsOption");
+        opts.addOption("Set Q1 quantile", "CombatArenaEndlessQuantileQ1Option");
+        opts.addOption("Set Q2 quantile", "CombatArenaEndlessQuantileQ2Option");
+        opts.addOption("Set Q3 quantile", "CombatArenaEndlessQuantileQ3Option");
+        opts.addOption("Set Q4 quantile", "CombatArenaEndlessQuantileQ4Option");
         opts.addOption("Back", "CombatArenaEndlessOption");
         opts.setShortcut("CombatArenaEndlessOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;

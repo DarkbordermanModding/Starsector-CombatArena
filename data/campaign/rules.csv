@@ -31,11 +31,11 @@ CombatArenaEndlessModeOption,DialogOptionSelected,"$option == CombatArenaEndless
 CombatArenaEndlessModeFleetParamOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetParamOption","CombatArenaEndlessModeScript fleetparam",,,
 CombatArenaEndlessModeFleetPointsOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetPointsOption","CombatArenaEndlessModeScript fleetpoints",,,
 
-# CombatArenaEndlessQuantileOption
-# CombatArenaEndlessQuantileQ1Option
-# CombatArenaEndlessQuantileQ2Option
-# CombatArenaEndlessQuantileQ3Option
-# CombatArenaEndlessQuantileQ4Option
+CombatArenaEndlessQuantileOption,DialogOptionSelected,"$option == CombatArenaEndlessQuantileOption","CombatArenaEndlessQuantileScript",,,
+CombatArenaEndlessQuantileQ1Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ1Option","CombatArenaEndlessQuantileScript q1",,,
+CombatArenaEndlessQuantileQ2Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ2Option","CombatArenaEndlessQuantileScript q2",,,
+CombatArenaEndlessQuantileQ3Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ3Option","CombatArenaEndlessQuantileScript q3",,,
+CombatArenaEndlessQuantileQ4Option,DialogOptionSelected,"$option == CombatArenaEndlessQuantileQ4Option","CombatArenaEndlessQuantileScript q4",,,
 
 CombatArenaEndlessFactionOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionOption","CombatArenaEndlessFactionScript",,,
 CombatArenaEndlessFactionRandomOption,DialogOptionSelected,"$option == CombatArenaEndlessFactionRandomOption","CombatArenaEndlessFactionScript random",,,
