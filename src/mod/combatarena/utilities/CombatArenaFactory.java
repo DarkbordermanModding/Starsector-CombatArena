@@ -102,7 +102,8 @@ public class CombatArenaFactory {
                     !variant.isStation() &&
                     !variant.getHullVariantId().contains("module_") &&
                     !variant.getHullVariantId().contains("remnant_") &&
-                    !variant.getHullVariantId().contains("derelict_mothership_")
+                    !variant.getHullVariantId().contains("derelict_mothership_") &&
+                    !variant.getHullVariantId().contains("astral1") //bugged variants
                 ) variants.add(variant);
             }
         }
@@ -121,11 +122,15 @@ public class CombatArenaFactory {
         int currentFleetPoints = 0;
         while(currentFleetPoints < record.opponentFleetPoint){
             ShipVariantAPI variant = variantQuartiles.get(random.nextInt(variantQuartiles.size()));
+            LOG.info(variant.getHullVariantId());
             fleet.getFleetData().addFleetMember(
                 Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant.getHullVariantId())
             );
             currentFleetPoints += variant.getHullSpec().getFleetPoints();
         }
+        fleet.getFleetData().setOnlySyncMemberLists(false);
+        fleet.getFleetData().sort();
+        fleet.forceSync();
         fleet.setNoFactionInName(true);
         fleet.setFaction("combat_arena", true);
         fleet.setName("Opponent fleet");
