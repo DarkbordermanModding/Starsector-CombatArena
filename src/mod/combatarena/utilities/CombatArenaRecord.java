@@ -25,7 +25,7 @@ public class CombatArenaRecord {
     public boolean opponentTransport = false;
     public boolean opponentUtilities = false;
     // used by fleetpoints
-    public int opponentQuantile = 0;
+    public int opponentQuantile = 1;
 
     //public static final String opponentCombatOption;
 

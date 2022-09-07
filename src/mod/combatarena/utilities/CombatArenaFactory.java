@@ -1,6 +1,7 @@
 package mod.combatarena.utilities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
@@ -97,16 +98,21 @@ public class CombatArenaFactory {
             ShipVariantAPI variant = Global.getSettings().getVariant(variantId);
             HullSize size = variant.getHullSize();
             if(size == HullSize.FRIGATE || size == HullSize.DESTROYER || size == HullSize.CRUISER || size == HullSize.CAPITAL_SHIP){
-                variants.add(variant);
+                if(
+                    !variant.isStation() &&
+                    !variant.getHullVariantId().contains("module_") &&
+                    !variant.getHullVariantId().contains("remnant_") &&
+                    !variant.getHullVariantId().contains("derelict_mothership_")
+                ) variants.add(variant);
             }
         }
 
-        variants.sort(new Comparator<ShipVariantAPI>() {
+        Collections.sort(variants, (new Comparator<ShipVariantAPI>() {
             @Override
             public int compare(ShipVariantAPI a, ShipVariantAPI b){
                 return a.getHullSpec().getFleetPoints() - b.getHullSpec().getFleetPoints();
             }
-        });
+        }));
 
         int quartile = variants.size() / 4;
         int multi = record.getOpponentQuantile();
