@@ -109,8 +109,8 @@ public class CombatArenaFactory {
         });
 
         int quartile = variants.size() / 4;
-        int multi = 1;
-        List<ShipVariantAPI> variantQuartiles = variants.subList(quartile * (multi - 1), quartile);
+        int multi = record.getOpponentQuantile();
+        List<ShipVariantAPI> variantQuartiles = variants.subList(quartile * (multi - 1), quartile * multi);
 
         int currentFleetPoints = 0;
         while(currentFleetPoints < record.opponentFleetPoint){
