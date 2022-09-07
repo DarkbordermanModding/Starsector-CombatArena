@@ -27,9 +27,9 @@ CombatArenaEndlessOption,DialogOptionSelected,"$option == CombatArenaEndlessOpti
 
 CombatArenaEndlessFightOption,DialogOptionSelected,"$option == CombatArenaEndlessFightOption","CombatArenaEndlessFightScript",,,
 
-#CombatArenaEndlessModeOption,DialogOptionSelected,"$option == CombatArenaEndlessModeOption",
-#CombatArenaEndlessModeFleetParamOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetParamOption",
-#CombatArenaEndlessModeFleetPointsOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetPointsOption",
+CombatArenaEndlessModeOption,DialogOptionSelected,"$option == CombatArenaEndlessModeOption","CombatArenaEndlessModeScript",,,
+CombatArenaEndlessModeFleetParamOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetParamOption","CombatArenaEndlessModeScript fleetparam",,,
+CombatArenaEndlessModeFleetPointsOption,DialogOptionSelected,"$option == CombatArenaEndlessModeFleetPointsOption","CombatArenaEndlessModeScript fleetpoints",,,
 
 # CombatArenaEndlessQuantileOption
 # CombatArenaEndlessQuantileQ1Option
