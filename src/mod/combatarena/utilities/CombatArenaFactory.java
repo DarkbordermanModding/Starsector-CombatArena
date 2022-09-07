@@ -1,5 +1,7 @@
 package mod.combatarena.utilities;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -8,7 +10,10 @@ import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.combat.ShipVariantAPI;
+import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.fleet.FleetMemberType;
 
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
@@ -83,7 +88,46 @@ public class CombatArenaFactory {
     public static CampaignFleetAPI createFleetByFleetPoints(CombatArenaRecord record) {
         // stub: not yet implemented
         MarketAPI market = Global.getFactory().createMarket("fake", "fake", 5);
+        Random random = new Random();
+
         CampaignFleetAPI fleet = createEmptyFleet(record.getOpponentFaction().getId(), FleetTypes.PERSON_BOUNTY_FLEET, market);
+
+        List<ShipVariantAPI> variants = new ArrayList<ShipVariantAPI>();
+        for(String variantId: Global.getSettings().getAllVariantIds()){
+            ShipVariantAPI variant = Global.getSettings().getVariant(variantId);
+            HullSize size = variant.getHullSize();
+            if(size == HullSize.FRIGATE || size == HullSize.DESTROYER || size == HullSize.CRUISER || size == HullSize.CAPITAL_SHIP){
+                variants.add(variant);
+            }
+        }
+
+        variants.sort(new Comparator<ShipVariantAPI>() {
+            @Override
+            public int compare(ShipVariantAPI a, ShipVariantAPI b){
+                return a.getHullSpec().getFleetPoints() - b.getHullSpec().getFleetPoints();
+            }
+        });
+
+        int quartile = variants.size() / 4;
+        int multi = 1;
+        List<ShipVariantAPI> variantQuartiles = variants.subList(quartile * (multi - 1), quartile);
+
+        int currentFleetPoints = 0;
+        while(currentFleetPoints < record.opponentFleetPoint){
+            ShipVariantAPI variant = variantQuartiles.get(random.nextInt(variantQuartiles.size()));
+            fleet.getFleetData().addFleetMember(
+                Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant.getHullVariantId())
+            );
+            currentFleetPoints += variant.getHullSpec().getFleetPoints();
+        }
+        fleet.setNoFactionInName(true);
+        fleet.setFaction("combat_arena", true);
+        fleet.setName("Opponent fleet");
+        fleet.getAI().addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 1000000f, null);
+        fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+        fleet.getMemoryWithoutUpdate().set("$dialog", "The opponent glares at you briefly before shutting down the comm link.");
+        Misc.makeImportant(fleet, "combat_arena", 120);
+
         return fleet;
     }
 }

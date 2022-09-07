@@ -36,12 +36,13 @@ public class CombatArenaEndlessScript extends BaseCommandPlugin {
         opts.addOption("Change opponent mode", "CombatArenaEndlessModeOption");
         opts.addOption("Change opponent fleet difficulties", "CombatArenaEndlessRoundOption");
         if(record.getOpponentMode().equals("fleetparam")){
-
+            opts.addOption("Change opponent faction", "CombatArenaEndlessFactionOption");
+            opts.addOption("Change opponent size", "CombatArenaEndlessShipSizeOption");
+            opts.addOption("Change opponent type", "CombatArenaEndlessShipTypeOption");
         }
-        opts.addOption("Change opponent faction", "CombatArenaEndlessFactionOption");
-        opts.addOption("Change opponent size", "CombatArenaEndlessShipSizeOption");
-        opts.addOption("Change opponent type", "CombatArenaEndlessShipTypeOption");
-        //opts.addOption("Change opponent combat strength", "CombatArenaTokenExchangeBlueprintHullOption");
+        else if (record.getOpponentMode().equals("fleetpoints")){
+            opts.addOption("Change opponent quantile", "CombatArenaEndlessQuantileOption");
+        }
         opts.addOption("Back", "CombatArenaMainEntryOption");
         opts.setShortcut("CombatArenaMainEntryOption", Keyboard.KEY_ESCAPE, false, false, false, false);
         return true;

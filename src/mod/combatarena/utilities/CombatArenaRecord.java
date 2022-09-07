@@ -12,6 +12,7 @@ public class CombatArenaRecord {
     public static final String COMBAT_ARENA_DATA_STORAGE_KEY = "$CombatArenaStorageKey";
     public String opponentMode = "fleetparam";
     public String opponentFaction = "hegemony";
+    // Used by fleet params
     public int opponentMinShipSize = 2;
     public int opponentMaxShipSize = 2;
     public float opponentFleetPoint = 60f;
@@ -23,6 +24,8 @@ public class CombatArenaRecord {
     public boolean opponentLiner = false;
     public boolean opponentTransport = false;
     public boolean opponentUtilities = false;
+    // used by fleetpoints
+    public int opponentQuantile = 0;
 
     //public static final String opponentCombatOption;
 
@@ -31,6 +34,14 @@ public class CombatArenaRecord {
     }
     public void setOpponentMode(String mode){
         opponentMode = mode;
+        Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
+    }
+
+    public int getOpponentQuantile(){
+        return opponentQuantile;
+    }
+    public void setOpponentQuantile(int quantile){
+        opponentQuantile = quantile;
         Global.getSector().getPersistentData().put(COMBAT_ARENA_DATA_STORAGE_KEY, this);
     }
 
